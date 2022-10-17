@@ -32,8 +32,8 @@ workspace.code-workspace
 .ipynb_checkpoints
 
 # PadoGrid workspace directories
-apps
-clusters
+#apps
+#clusters
 docker
 groups
 k8s
