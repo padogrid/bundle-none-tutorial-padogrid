@@ -8,41 +8,4 @@
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<baseDirectory>${project.name}</baseDirectory>
-
-	<fileSets>
-		<fileSet>
-			<directory>apps</directory>
-			<outputDirectory>apps</outputDirectory>
-			<includes>
-				<include>**</include>
-			</includes>
-		</fileSet>
-		<fileSet>
-			<directory>clusters</directory>
-			<outputDirectory>clusters</outputDirectory>
-			<includes>
-				<include>**</include>
-			</includes>
-		</fileSet>
-		
-		<!-- Executable permissions -->
-		<fileSet>
-			<directory>cluster/myapp/bin_sh/</directory>
-			<outputDirectory>k8s/myapp/bin_sh/</outputDirectory>
-			<includes>
-				<include>**</include>
-			</includes>
-			<fileMode>0755</fileMode>
-			<directoryMode>0755</directoryMode>
-		</fileSet>
-		<fileSet>
-			<directory>clusters/mycluster/bin_sh/</directory>
-			<outputDirectory>clusters/mycluster/bin_sh/</outputDirectory>
-			<includes>
-				<include>**</include>
-			</includes>
-			<fileMode>0755</fileMode>
-			<directoryMode>0755</directoryMode>
-		</fileSet>
-	</fileSets>
 </assembly>
