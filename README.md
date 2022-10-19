@@ -14,11 +14,11 @@ install_bundle -checkout bundle-none-tutorial-padogrid
 
 ## Use Case
 
-PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of scripts primarily for developers running clusters on a single node thwarting their pratical use. This task multiplies as you include more products in your system architecture. Learning each product's scripts is a tedious and time consuming task.
+PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of script but they are typically for running a single cluster member instance on your local machine. You are left with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a clusterw. The complexity of this task multiplies as you add more members to the cluster and include more clusters and products in your system architecture, and not to mention, learning each product's scripts requires a significant amount of time and efforts.
 
-PadoGrid solves this problem by providing a single, unified set of commands for managing data grid products. The same set of commands applies to all the [supported data grid products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, their support is included in online bundles instead. Each bundle represents an end-to-end use case and a turnkey solution that you can simply install and run. Including this bundle, there are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) that are made readily available for you.
+PadoGrid solves this problem by providing a single, unified set of commands for managing data grid products. The same set of commands applies to all the [supported data grid products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, they can be found in *bundles* as part of solutions. Each bundle is a shrink-wrapped, turnkey solution capturing an end-to-end use case that you can simply install and run. Including this tutorial bundle, there are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) that are made readily available for you to use. All for free and all for fun!
 
-PadoGrid was built from the beginning to bring the concept of *distributed workspaces* to practice by allowing you to create sandbox environments on the fly. PadoGrid isolates each workspace that you create from others so that you can focus on the applications that will be running only on your workspace. The bundles are the direct results of this concept as they must be run in isolated environments to prevent workspace conflicts. In this bundle, we will explore some of the commonly used PadoGrid commands to understand the benefits of having distributed workspaces. 
+PadoGrid was built from the beginning to bring the concept of *distributed workspaces* to practice by allowing you to create sandbox environments on the fly. PadoGrid isolates each workspace that you create from other workspaces so that you can instead focus on your application. The bundles are the direct results of this concept as they need to be run in isolated environments to prevent workspace conflicts. In this tutorial bundle, we will explore some of the commonly used PadoGrid commands to understand the benefits of having distributed workspaces. 
 
 ![PadoGrid Tutorial](images/padogrid-tutorial.drawio.png)
 
@@ -43,7 +43,7 @@ Upon installation, execute the following to intialize PadoGrid. Note that PadoGr
 echo ". ~/Padogrid/workspaces/myrwe/initenv.sh -quiet" >> ~/.bashrc
 ```
 
-Let's take a look at the default directory where PadoGrid is stalled.
+Let's take a look at the default directory where PadoGrid is installed.
 
 ```bash
 tree -L 2 ~/Padogrid
@@ -64,15 +64,15 @@ You should see the directory structure similar to the following.
     └── myrwe
 ```
 
-The `downloads` directory stores all downloads done by the `install_padogrid` command, which you have previously executed using `curl`. PadoGrid distributions include this command so that you can use it to install additional products at any time.
+The `downloads` directory contains the downloads done by the `install_padogrid` command, which you have previously executed using `curl`. PadoGrid distributions include this command so that you can use it to install additional products at any time.
 
-The `products` directory contains the inflated product home directories. For example, `hazelcast-5.1.4-slim.tar.gz` and `padogrid_0.9.21.tar.gz` downloaded by `install_padogrid` are inflated in `products/hazelcast-5.1.4-slim` and `products/padogrid_0.9.21`, respectively.
+The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.1.4-slim.tar.gz` and `padogrid_0.9.21.tar.gz` distriubtions are inflated by `install_padogrid` in `products/hazelcast-5.1.4-slim` and `products/padogrid_0.9.21`, respectively.
 
-The `snapshots` directory is reserved for future use. PadoGrid snapshot builds are also available and installable using `install_padogrid`. Note that the snapshots are currently installed in the `products` directory, not this directory. This may change in the future.
+The `snapshots` directory is reserved for future use. PadoGrid snapshot builds are also available and installable using `install_padogrid`. Note that the snapshots are currently installed in the `products` directory, not in the `snapshots` directory. This may change in the future.
 
-The `workspaces` directory contains user workspaces. The `workspaces/myrwe` directory is the default RWE (Root Workspaces Environment) that contains the default `myws` workspace created by `install_padogrid`. We will go over the contents shortly in this tutorial.
+The `workspaces` directory contains user workspaces. The `workspaces/myrwe` directory is the default RWE (Root Workspaces Environment) that contains the default `myws` workspace created by `install_padogrid`. We will go over the workspace directory contents shortly in this tutorial.
 
-In addition to `~/Padogrid`, PadoGrid creates the `~/.padogrid` directory store workspace metadata as shown below. We will touch up on the use of this directory later.
+In addition to `~/Padogrid`, PadoGrid creates the `~/.padogrid` directory to store workspace metadata as shown below. We will touch up on the use of this directory later.
 
 ```bash
 tree ~/.padogrid
@@ -94,7 +94,7 @@ Output:
 
 ### Unstalling PadoGrid
 
-PadoGrid is unstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. The following completely removes PadoGrid.
+PadoGrid is unstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. The following completely removes PadoGrid including workspaces.
 
 ```bash
 # Remove all PadoGrid directories
@@ -107,7 +107,7 @@ sed -i 0 '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' ~/.bashrc
 sed -i0 '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' ~/.bashrc
 ```
 
-:pencil2: The above removes PadoGrid and all PadoGrid installed products and workspaces. If you have PadoGrid clusters and applications running, then make sure you stop them first before removing PadoGrid.
+:pencil2: The above removes PadoGrid and all PadoGrid installed products and workspaces. If you have PadoGrid clusters and applications running, then make sure you stop them first before removing PadoGrid. Please see [FAQ](https://github.com/padogrid/padogrid/wiki/faq-How-do-I-stop-all-cluster-processes-started-by-PadoGrid) for stopping all cluster processes started by PadoGrid.
 
 ## 1. PadoGrid Help
 
@@ -182,7 +182,7 @@ make_cluster <tab><tab>
 vm_sync <tab><tab>
 ```
 
-PadoGrid commands are grouped and identifiable by prefixes and postfixes. Most of the commands begin with the following verbs.
+PadoGrid commands are grouped and identifiable by prefixes and postfixes. The commands begin with the following verbs.
 
 - `add_` (add component)
 - `build_` (build components)
@@ -238,11 +238,11 @@ Root Workspaces Environments (RWEs)
     └── myws [padogrid_0.9.21]
 ```
 
-An RWE (Root Workspaces Environment) is a workspace root directory that contains one or more workspaces. You can have more than one RWEs, each containing their own set of workspaces. A workspace contains PadoGrid components such as apps, clusters, Docker, groups, Kubernetes, and PadoGrid pods (Vagrant VMs). We will explore all the components individually.
+An RWE (Root Workspaces Environment) is a workspace root directory that contains one or more workspaces. You can have more than one RWE, each containing their own set of workspaces. A workspace contains PadoGrid components such as apps, clusters, Docker, groups, Kubernetes, and PadoGrid pods (Vagrant VMs). We will explore all the components individually.
 
-By default, PadoGrid initailly installs the RWE named, `myrwe`, and created the workspace named, `myws` in the RWE, `myrwe`.
+By default, PadoGrid initailly installs the RWE named, `myrwe`, and creates the workspace named, `myws` in the RWE, `myrwe`.
 
-You can also view each workspace component using the `show_*` command.
+You can also view each PadoGrid component using the `show_*` commands.
 
 ```bash
 padogrid show_rwe
@@ -261,6 +261,8 @@ show_cluster
 ## 2. Create a new RWE
 
 Let's create a new RWE from which we will conduct our tutorial. We do this by running `create_rwe`. The `create_rwe` command by default runs interactively prompting for inputs. To run it non-interactively, you need to specify the `-quiet` option.
+
+:pencil2: Keep in mind that an RWE is a top directory in which workspaces are stored. Similary, a workspace is a directory in which PadoGrid components are stored.
 
 ### 2.1. Interactive RWE
 
@@ -328,7 +330,7 @@ Enter 'c' to continue, 'r' to re-enter, 'q' to quit: c
 
 ## 3. Switch RWE
 
-To use the RWE you just created, we need to switch into that RWE. By switching, we are changing the current context. We can change context of RWE, workspace, cluster, group, and pod. Once in the switched context, then you are in that context until you switch into another context. You can check yor current context by executing `pwd_*` commands.
+To use the RWE you just created, we need to switch into that RWE. By switching, we are changing the current context. We can change the context of RWE, workspace, cluster, group, and pod. Once in the switched context, then you are in that context until you switch into another context. You can check yor current context by executing `pwd_*` commands.
 
 ```bash
 # Check current context (this outputs myrwe)
@@ -375,13 +377,13 @@ install_bundle -checkout bundle-none-tutorial-padogrid
 
 We have just installed `bundle-none-tutorial-padogrid` in `rwe-tutorial` as a workspace. A bundle can be installed several ways.
 
-- As a workspace - PadoGrid creates a new workspace and downloads the bundle contents in the new workspace. 
-- As workspace components - PadoGrid installs the bundle in the current workspace. This might overwrite existing components so it will prompt with a warning message for you to confirm.
-- As a checked out workspace - A git cloned workspace for you to make changes. This allows you to create and maintain your own online bundles.
-- Downloaded repo source distribution - If your mahcine is behind a firewall and do not have access to the Internet, then you can manually download the bundle repo distribution from your browser and install it with the `install_bundle` command.
-- Preview bundle - Before you install the bundle, you can preview what it contains.
+- *As a workspace* - PadoGrid creates a new workspace and downloads the bundle contents in the new workspace. 
+- As workspace components - PadoGrid installs the bundle in the current workspace. This might overwrite the existing components so it will prompt with a warning message for you to confirm.
+- *As a checked out workspace* - A git cloned workspace for you to make changes. This allows you to create and maintain your own online bundles.
+- *As a downloaded repo source distribution* - If your mahcine is behind a firewall and do not have access to the Internet, then you can manually download the bundle repo distribution from your browser and install it with the `install_bundle` command.
+- *As a preview bundle* - Before you install the bundle, you can preview what it contains.
 
-We did not specify the workspace name, so by default the above command created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
+We sepecified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
 
 Let's switch into the new workspace and view its contents.
 
