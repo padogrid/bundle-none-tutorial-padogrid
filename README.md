@@ -85,11 +85,11 @@ Output:
 ├── setenv.sh
 └── workspaces
     └── myrwe
-        └── myws
-            ├── workspaceenv.sh
-            └── clusters
-                └── myhz
-                    └── clusterenv.sh
+        └── myws
+            ├── clusters
+            │   └── myhz
+            │       └── clusterenv.sh
+            └── workspaceenv.sh
 ```
 
 ### Unstalling PadoGrid
