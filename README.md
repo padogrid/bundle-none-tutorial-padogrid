@@ -14,7 +14,7 @@ install_bundle -checkout bundle-none-tutorial-padogrid
 
 ## Use Case
 
-PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of script but they are typically for running a single cluster member instance on your local machine. You are left with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a clusterw. The complexity of this task multiplies as you add more members to the cluster and include more clusters and products in your system architecture, and not to mention, learning each product's scripts requires a significant amount of time and efforts.
+PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of script but they are typically for running a single cluster member instance on your local machine. You are left with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a cluster. The complexity of this task multiplies as you add more members to the cluster and include more clusters and products in your system architecture, and not to mention, learning each product's scripts requires a significant amount of time and efforts.
 
 PadoGrid solves this problem by providing a single, unified set of commands for managing data grid products. The same set of commands applies to all the [supported data grid products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, they can be found in *bundles* as part of solutions. Each bundle is a shrink-wrapped, turnkey solution capturing an end-to-end use case that you can simply install and run. Including this tutorial bundle, there are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) that are made readily available for you to use. All for free and all for fun!
 
@@ -27,6 +27,7 @@ PadoGrid was built from the beginning to bring the concept of *distributed works
 - Maven 3.x
 - Git
 - jq
+- JDK 8+
 
 ## 0. Install PadoGrid
 
@@ -36,7 +37,7 @@ By default, PadoGrid installs in your home directory under the `~/Padogrid` dire
 curl -fsSL https://raw.githubusercontent.com/padogrid/padogrid/develop/padogrid-deployment/src/main/resources/common/bin_sh/install_padogrid | /bin/bash -s -- -no-stty -quiet -product hazelcast-oss
 ```
 
-Upon installation, execute the following to intialize PadoGrid. Note that PadoGrid only runs in `bash`. If `bash` is not your default shell, then you must manually run `bash` to intialize PadoGrid.
+Upon installation, execute the following to initialize PadoGrid. Note that PadoGrid only runs in `bash`. If `bash` is not your default shell, then you must manually run `bash` to initialize PadoGrid.
 
 ```bash
 . ~/Padogrid/workspaces/myrwe/initenv.sh -quiet
@@ -66,7 +67,7 @@ You should see the directory structure similar to the following.
 
 The `downloads` directory contains the downloads done by the `install_padogrid` command, which you have previously executed using `curl`. PadoGrid distributions include this command so that you can use it to install additional products at any time.
 
-The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.1.4-slim.tar.gz` and `padogrid_0.9.21.tar.gz` distriubtions are inflated by `install_padogrid` in `products/hazelcast-5.1.4-slim` and `products/padogrid_0.9.21`, respectively.
+The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.1.4-slim.tar.gz` and `padogrid_0.9.21.tar.gz` distributions are inflated by `install_padogrid` in `products/hazelcast-5.1.4-slim` and `products/padogrid_0.9.21`, respectively.
 
 The `snapshots` directory is reserved for future use. PadoGrid snapshot builds are also available and installable using `install_padogrid`. Note that the snapshots are currently installed in the `products` directory, not in the `snapshots` directory. This may change in the future.
 
@@ -92,9 +93,9 @@ Output:
             └── workspaceenv.sh
 ```
 
-### Unstalling PadoGrid
+### Uninstalling PadoGrid
 
-PadoGrid is unstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. The following completely removes PadoGrid including workspaces.
+PadoGrid is uninstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. The following completely removes PadoGrid including workspaces.
 
 ```bash
 # Remove all PadoGrid directories
@@ -182,7 +183,15 @@ make_cluster <tab><tab>
 vm_sync <tab><tab>
 ```
 
-PadoGrid commands are grouped and identifiable by prefixes and postfixes. The commands begin with the following verbs.
+PadoGrid commands are bash scripts grouped and identifiable by prefixes and postfixes as shown below.
+
+Prefixes
+   - `cp_` (Hazelcast CP Subsystem), `t_` (tools), `vm_` (VMs).
+
+Postfixes
+   - `_app`, `_bundle`, `_cluster`, `_datanode`, `_docker`, `_group`, `_jupyter`, `_k8s`, `_leader`, `_locator`, `_master`, `_member`, `_namenode`, `_pod`, `_rwe`, `_vm`, `_vscode`, `_worker`, `_workspace`.
+
+The sub-commands begin with the following verbs.
 
 - `add_` (add component)
 - `build_` (build components)
@@ -209,7 +218,7 @@ PadoGrid commands are grouped and identifiable by prefixes and postfixes. The co
 - `vm_`(vm specific commands)
 
 
-## 1. View PadoGrid envrionment
+## 1. View PadoGrid environment
 
 When you installed PadoGrid, it created the default RWE, `myrwe`, and workspace, `myws`. You can view the PadoGrid workspace environment by executing `padogrid` as follows.
 
@@ -262,7 +271,7 @@ show_cluster
 
 Let's create a new RWE from which we will conduct our tutorial. We do this by running `create_rwe`. The `create_rwe` command by default runs interactively prompting for inputs. To run it non-interactively, you need to specify the `-quiet` option.
 
-:pencil2: Keep in mind that an RWE is a top directory in which workspaces are stored. Similary, a workspace is a directory in which PadoGrid components are stored.
+:pencil2: Keep in mind that an RWE is a top directory in which workspaces are stored. Similarly, a workspace is a directory in which PadoGrid components are stored.
 
 ### 2.1. Interactive RWE
 
@@ -380,10 +389,10 @@ We have just installed `bundle-none-tutorial-padogrid` in `rwe-tutorial` as a wo
 - *As a workspace* - PadoGrid creates a new workspace and downloads the bundle contents in the new workspace. 
 - As workspace components - PadoGrid installs the bundle in the current workspace. This might overwrite the existing components so it will prompt with a warning message for you to confirm.
 - *As a checked out workspace* - A git cloned workspace for you to make changes. This allows you to create and maintain your own online bundles.
-- *As a downloaded repo source distribution* - If your mahcine is behind a firewall and do not have access to the Internet, then you can manually download the bundle repo distribution from your browser and install it with the `install_bundle` command.
+- *As a downloaded repo source distribution* - If your machine is behind a firewall and do not have access to the Internet, then you can manually download the bundle repo distribution from your browser and install it with the `install_bundle` command.
 - *As a preview bundle* - Before you install the bundle, you can preview what it contains.
 
-We sepecified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
+We specified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
 
 Let's switch into the new workspace and view its contents.
 
@@ -399,10 +408,10 @@ Workspace:
    bundle-none-tutorial-padogrid [padogrid_0.9.21]
 
 RWE Directory:
-   /home/vagrant/Padogrid/workspaces/rwe-tutorial
+   /home/ec2-user/Padogrid/workspaces/rwe-tutorial
 
 Workspace Directory:
-   /home/vagrant/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid
+   /home/ec2-user/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid
 
 Workspace Type:
    local
@@ -430,7 +439,7 @@ Output:
 
 ```console
          CLUSTER: myhz
-     CLUSTER_DIR: /home/vagrant/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid/clusters/myhz
+     CLUSTER_DIR: /home/ec2-user/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid/clusters/myhz
          PRODUCT: hazelcast
     CLUSTER_TYPE: hazelcast
              POD: local
@@ -493,12 +502,18 @@ vi etc/cluster.properties
 At the bottom of the `cluster.properties` file, enable VMs and enter your remote machine addresses as shown in the example below.
 
 ```properties
+...
+# Management Center host and port numbers
+# Use the first IP for MC.
+mc.host=192.168.56.22
+...
 # Enable/disable VM cluster
 vm.enabled=true
 # A comma separated list of host names or addresses. IMPORTANT: No spaces allowed.
-vm.hosts=192.168.56.22,192.168.56.23,192.168.56.24,192.168.56.25
+# Here, we removed the first IP address from the list. It is used for MC.
+vm.hosts=192.168.56.23,192.168.56.24,192.168.56.25
 # SSH user name. If not specified then defaults to the shell login session user name.
-vm.user=vagrant
+vm.user=ec2-user
 # Optional private key file path. e.g., a private '.pem' key file. If not specified
 # it defaults to VM_PRIVATE_KEY_FILE defined in the workspace 'vmenv.sh' file.
 #vm.privateKeyFile=/your/private/keyfile.pem
@@ -514,7 +529,7 @@ Output:
 
 ```console
          CLUSTER: myhz
-    CLUSTER_DIR: /home/vagrant/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid/clusters/myhz
+    CLUSTER_DIR: /home/ec2-user/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid/clusters/myhz
          PRODUCT: hazelcast
     CLUSTER_TYPE: hazelcast
       Deployment: VM
@@ -671,7 +686,7 @@ There are many other features that are included in `perf_test`. The following is
 - Ingest transactional data of any size
 - Ingest mock data with entity relationships (ER)
 - Ingest mock data directly to databases
-- Simulate complex appliation workflows that invoke Hazelcast operations without coding
+- Simulate complex application workflows that invoke Hazelcast operations without coding
 - Measure Hazelcast latencies and throughputs in a multi-threaded user session environment
 
 Once you have ingested data, you can view the data from the Management Center or run the `read_cache` script.
@@ -749,10 +764,10 @@ Workspace:
    bundle-none-tutorial-padogrid [padogrid_0.9.21]
 
 RWE Directory:
-   /home/vagrant/Padogrid/workspaces/rwe-tutorial
+   /home/ec2-user/Padogrid/workspaces/rwe-tutorial
 
 Workspace Directory:
-   /home/vagrant/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid
+   /home/ec2-user/Padogrid/workspaces/rwe-tutorial/bundle-none-tutorial-padogrid
 
 Workspace Type:
    local
@@ -800,7 +815,7 @@ Don't forget to close HazelcastDesktop.
 
 ## 14. Install Geode/GemFire
 
-Let's now try another product, Geode. Keep in mind that all of the commands that we used previously also apply to other products. 
+Let's now try another product, Geode. Keep in mind that all of the commands that we used previously for Hazelcast also apply to other products. 
 
 ```bash
 install_padogrid -product geode
@@ -826,7 +841,11 @@ Once the cluster is started, check the status
 show_cluster -long
 ```
 
-Note that Geode has one additional member called **locator** running. The locator oversees the cluster members and provides registry and management services. It also by default provides a JMX management service similar to Hazelcast Management Center. 
+Note that Geode has one additional member called **locator** running. The locator oversees the cluster members and provides registry and management services. It also by default provides a JMX management service with the frontend Pulse that is similar to Hazelcast Management Center.
+
+PULSE_URL: http://localhost:7070/pulse
+
+![Pulse](images/geode-pulse.png)
 
 ## 16. Create and run `perf_test_geode` app
 
@@ -896,9 +915,102 @@ https://github.com/padogrid/padogrid/wiki/Geode-Grafana-App
 stop_cluster -all
 ```
 
+19. Group clusters
+
+A typical system architecture is comprised of a number of product clusters. Instead of managing clusters individually, you can also manage a single group that contains one or more clusters. This is achieved by creating a group and adding clusters to the group.
+
+Let's create a group called, `datagrid` that contains the `myhz` and `mygeode` clusters.
+
+```bash
+# By default, create_group creates and adds two (2) clusters. Since we already have clusters that
+# we want to group, let's create an empty group by specifying '-count 0'.
+create_group -group datagrids -count 0
+
+# Add the existing clusters to the group
+add_cluster -group datagrids -cluster myhz
+add_cluster -group datagrids -cluster mygeode
+```
+
+Switch into the `datagrids` group and run `show_group` to view the group details.
+
+```bash
+switch_group datagrids
+show_group
+```
+
+Output:
+
+```console
+           GROUP: datagrids
+        Clusters: myhz, mygeode
+
+         CLUSTER: myhz
+     CLUSTER_DIR: /Users/dpark/Padogrid/workspaces/rwe-bundles/bundle-none-tutorial-padogrid/clusters/myhz
+         PRODUCT: hazelcast
+    CLUSTER_TYPE: hazelcast
+             POD: local
+        POD_TYPE: local
+ Members Running: 0/2
+      MC Running: 0/1
+         Version: 5.1.4
+  Switch Cluster: switch_rwe rwe-bundles bundle-none-tutorial-padogrid; switch_cluster myhz
+
+         CLUSTER: mygeode
+     CLUSTER_DIR: /Users/dpark/Padogrid/workspaces/rwe-bundles/bundle-none-tutorial-padogrid/clusters/mygeode
+         PRODUCT: geode
+    CLUSTER_TYPE: geode
+        Run Type: default
+             POD: local
+        POD_TYPE: local
+Locators Running: 0/1
+ Members Running: 0/2
+         Version: 1.15.1
+  Switch Cluster: switch_rwe rwe-bundles bundle-none-tutorial-padogrid; switch_cluster mygeode
+```
+
+Start the group. 
+
+```bash
+# Starts both myhz and mygeode. '-all' for starting Management Center
+start_group -all
+```
+
+Stop the group.
+
+```bash
+# Stop both myhz ad mygeode. '-all' for stopping Management Center
+stop_group -all
+
+# Kill the group instead
+kill_group -all
+```
+
+You can also remove clusters from groups.
+
+```bash
+# Remove myhz from the datagrids group
+remove_cluster -group datagrids -cluster myhz
+```
+
+## 20. Stop or kill workspaces and RWEs
+
+Like groups, workspaces and RWEs can be started and stopped. For example, the following
+
+```bash
+# Stop or kill all clusters in the 'bundle-none-tutorial-padogrid' workspace. '-all' for all components, i.e., locators, members, management center,
+# leaders, workers, etc. Each product may have components other than members.
+stop_workspace -workspace bundle-none-tutorial-padogrid -all
+kill_workspace -workspace bundle-none-tutorial-padogrid -all
+
+# Stop or kill all workspaces in the 'rwe-tutorial' RWE. '-all' for all components, i.e., locators, members, management center,
+# leaders, workers, etc. Each product may have components other than members.
+stop_rwe -rwe rwe-tutorial -all
+kill_rwe -rwe rwe-tutorial -all
+```
+
 ---
 
-## 19. Install Pado
+## 21. Install Pado
 
 Pado is a platform that federates data grids into a single logical data hub, providing a single entry point for accessing global data. PadoGrid fully integrates Pado providing the ability to seamlessly run Pado and its applications in PadoGrid workspaces. 
 
@@ -914,7 +1026,7 @@ install_padogrid -product padodestop
 update_product -product padodesktop
 ```
 
-## 20. Create and start PadoLite cluster
+## 22. Create and start PadoLite cluster
 
 PadoLite is a stripped down, non-federated version of Pado for including support for Pado features in Geode and GemFire. With PadoLite, you get all Pado features that can be run only in a single cluster. See [Pado](https://github.com/netcrest/pado) for details.
 
@@ -957,7 +1069,7 @@ query --query="select * from /nw/orders"
 quit
 ```
 
-## 21. Create and run PadoDesktop app
+## 23. Create and run PadoDesktop app
 
 For Geode and GemFire, we can use PadoDesktop to browse the data stored in the cluster. Note that PadoDesktop can only run on Pado-enabled clusters. Let's create and run a PadoDekstop app instance.
 
@@ -983,7 +1095,7 @@ select * from /nw/orders
 
 ![Pado Desktop](images/padodesktop.png)
 
-## 22. Stop PadoLite cluster
+## 24. Stop PadoLite cluster
 
 ```bash
 # The '-all' option stops both members and locators
@@ -994,7 +1106,7 @@ Don't forget to close PadoDesktop.
 
 ---
 
-## 23. Create and start federated Pado clusters
+## 25. Create and start federated Pado clusters
 
 Pado federates Geode/GemFire clusters providing a single logical entry point for globally managing data grids. It provides essential design patterns that may be applied in building global data hubs. It is a working prototype that addresses many of data hub related problems.
 
@@ -1141,11 +1253,11 @@ show_group
 show_group -long
 ```
 
-## 24. Ingest data into Pado clusters
+## 26. Ingest data into Pado clusters
 
 You have five (5) clusters powered by Pado. Unlike PadoLite, the Pado API is required to ingest data into Pado grids. Pado includes several test scripts for ingesting data. Let's ingest temporal data.
 
-First, run the following to exclude log4j from the class path. This is required due to the imcompatible log4j library included in Geode and PadoGrid. The log4j library has been undergoing many API changes recently and there are still version incompatibility issues in Geode distributions.
+First, run the following to exclude log4j from the class path. This is required due to the incompatible log4j library included in Geode and PadoGrid. The log4j library has been undergoing many API changes recently and there are still version incompatibility issues in Geode distributions.
 
 
 ```bash
@@ -1179,7 +1291,7 @@ cd bin_sh
 ./update_keytype -reset
 ```
 
-## 25. View Pado clusters
+## 27. View Pado clusters
 
 You can use PadoDesktop to view the Pado clusters.
 
@@ -1228,7 +1340,7 @@ join nw/suppliers s ON s.SupplierId:p.SupplierId
 
 ### OQL
 
-Pado creates all *grid paths* under the unique grid ID, which is analogous to the cluster name. For example, the parenent grid has the grid ID, 'grid0'. To execute OQL statements, the region path must include the grid ID as shown in the examples shown below.
+Pado creates all *grid paths* under the unique grid ID, which is analogous to the cluster name. For example, the parent grid has the grid ID, 'grid0'. To execute OQL statements, the region path must include the grid ID as shown in the examples shown below.
 
 ```sql
 --Query all from the 'account' region
@@ -1246,11 +1358,11 @@ select * from /grid0/account
 
 ### Virtual Path
 
-From the left lower pane, select any of the example virtual paths. Depending on which one you select you will see its details in the Virtual Entity or Virtual Stitch pane. The following image shows query results of the virtual path, `entity/nw/order` that requires the input parameters of `CustomerId`, `OrderId`, and `ShipVia`. Note that the virtual path has one-to-one and one-to-many entitiy relationships defined. The query result shows an aggregated list of `OrderDetailList`.
+From the left lower pane, select any of the example virtual paths. Depending on which one you select you will see its details in the Virtual Entity or Virtual Stitch pane. The following image shows query results of the virtual path, `entity/nw/order` that requires the input parameters of `CustomerId`, `OrderId`, and `ShipVia`. Note that the virtual path has one-to-one and one-to-many entity relationships defined. The query result shows an aggregated list of `OrderDetailList`.
 
 ![Pado Desktop Virtual Path](images/padodesktop-vp.png)
 
-## 26. Stop Pado clusters
+## 28. Stop Pado clusters
 
 ```bash
 stop_group -all
@@ -1258,8 +1370,22 @@ stop_group -all
 
 Don't forget to close PadoDesktop.
 
+---
+
+## 29. Some bundles to try
+
+- [bundle-hazelcast-4n5-app-kryo_codege](https://github.com/padogrid/bundle-hazelcast-4n5-app-kryo_codegen) - Kryo serdes class generator
+- [bundle-hazelcast-4n5-cluster-session-wan](https://github.com/padogrid/bundle-hazelcast-4n5-cluster-session-wan) - WAN replication and session expiration plugins
+- [bundle-hazelcast-examples-python](https://github.com/padogrid/bundle-hazelcast-examples-python) - Requires JupyterLab
+- [bundle-hazelcast-5-docker-debezium_ksqldb_confluent](https://github.com/padogrid/bundle-hazelcast-5-docker-debezium_ksqldb_confluent) - Requires Docker
 
 ---
+
+## 30. Multitenancy
+
+PadoGrid can be configured with multitenancy to provide workspace access to multiple users. Please see the following link for instructions.
+
+https://github.com/padogrid/padogrid/wiki/Multitenancy
 
 ---
 
