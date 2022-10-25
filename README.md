@@ -415,7 +415,7 @@ install_bundle bundle-none-tutorial-padogrid-master.zip
 install_bundle -preview bundle-none-tutorial-padogrid
 ```
 
-We specified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
+For our tutorial, we specified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
 
 Let's switch into the new workspace and view its contents.
 
@@ -1397,10 +1397,22 @@ Don't forget to close PadoDesktop.
 
 ## 29. Some bundles to try
 
+[Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a complete list of public bundles that are readily available to you. Some of the bundles that you may want to supplement this tutorial are listed below.
+
 - [bundle-hazelcast-4n5-app-kryo_codege](https://github.com/padogrid/bundle-hazelcast-4n5-app-kryo_codegen) - Kryo serdes class generator
 - [bundle-hazelcast-4n5-cluster-session-wan](https://github.com/padogrid/bundle-hazelcast-4n5-cluster-session-wan) - WAN replication and session expiration plugins
 - [bundle-hazelcast-examples-python](https://github.com/padogrid/bundle-hazelcast-examples-python) - Requires JupyterLab
 - [bundle-hazelcast-5-docker-debezium_ksqldb_confluent](https://github.com/padogrid/bundle-hazelcast-5-docker-debezium_ksqldb_confluent) - Requires Docker
+
+You can also use the `show_bundle`command to list all the online bundles as follows.
+
+```bash
+# List all online bundles along with header (short description) of each bundle
+show_bundle -all -header
+
+# List Hazelcast bundles only
+show_bundle -product hazelcast -header
+```
 
 ---
 
