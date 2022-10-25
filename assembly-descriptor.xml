@@ -8,4 +8,14 @@
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<baseDirectory>${project.name}</baseDirectory>
+
+	<fileSets>
+		<fileSet>
+			<directory>apps</directory>
+			<outputDirectory>apps</outputDirectory>
+			<includes>
+				<include>**</include>
+			</includes>
+		</fileSet>
+	</fileSets>
 </assembly>
