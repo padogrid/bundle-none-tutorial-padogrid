@@ -22,14 +22,32 @@ PadoGrid was built from the beginning to bring the concept of *distributed works
 
 ![PadoGrid Tutorial](images/padogrid-tutorial.drawio.png)
 
+## Required OS/Platform
+
+One of the following OS's or platforms:
+
+- Linux
+- macOS
+- Windows (Cygwin, WSL)
+- Docker
+- Kubernetes
+
 ## Required Software
 
+- Bash
 - Maven 3.x
 - Git
-- jq
 - JDK 8+
 
+## Optional Software
+
+- jq
+
 ## 0. Install PadoGrid
+
+PadoGrid requires `bash` and can be installed on Linux, macOS, Windows with Cygwin or WSL, Docker, or Kubernetes.
+
+### Linux, macOS, Windows (Cygwin, WSL)
 
 By default, PadoGrid installs in your home directory under the `~/Padogrid` directory. You can change this directory by running the `install_padogrid` script. For our tutorial, let's install it in the default directory. The following `curl` command silently installs PadoGrid and Hazelcast OSS.
 
@@ -44,7 +62,35 @@ Upon installation, execute the following to initialize PadoGrid. Note that PadoG
 echo ". ~/Padogrid/workspaces/myrwe/initenv.sh -quiet" >> ~/.bashrc
 ```
 
+### Docker
+
+```bash
+docker run -it --rm padogrid/padogrid /bin/bash
+```
+
+### Podman
+
+```bash
+podman run -it --rm padogrid/padogrid /bin/bash
+```
+
+### Kubernetes
+
+```bash
+kubectl run padogrid --image=docker.io/padogrid/padogrid
+```
+
+### OpenShift
+
+```bash
+oc run padogrid --image=docker.io/padogrid/padogrid
+```
+
+### Directory Layout
+
 Let's take a look at the default directory where PadoGrid is installed.
+
+If you installed PadoGrid on OS, then its default directory is `$HOME/Padogrid` and has the following directory layout.
 
 ```bash
 tree -L 2 ~/Padogrid
@@ -65,7 +111,27 @@ You should see the directory structure similar to the following.
     └── myrwe
 ```
 
-The `downloads` directory contains the downloads done by the `install_padogrid` command, which you have previously executed using `curl`. PadoGrid distributions include this command so that you can use it to install additional products at any time.
+If you are running PadoGrid in Docker or Kubernetes, then the PadoGrid directory is `/opt/padogrid` and has the directory structure as follows.
+
+```bash
+tree -L 2 /opt/padogrid
+```
+
+```bash
+/opt/padogrid
+├── downloads
+├── padogrid_start
+├── products
+│   ├── hazelcast-5.1.3-slim
+│   ├── hazelcast-management-center-5.1.4
+│   └── padogrid_0.9.21
+└── workspaces
+    └── myrwe
+```
+
+The `downloads` directory contains the downloads done by the `install_padogrid` command. PadoGrid distributions include this command so that you can use it to install additional products at any time.
+
+The `padogrid_start` script is a bootstrap script for Docker and Kubernetes. You can ignore that file.
 
 The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.1.4-slim.tar.gz` and `padogrid_0.9.21.tar.gz` distributions are inflated by `install_padogrid` in `products/hazelcast-5.1.4-slim` and `products/padogrid_0.9.21`, respectively.
 
