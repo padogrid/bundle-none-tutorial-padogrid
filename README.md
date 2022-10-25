@@ -932,7 +932,9 @@ show_cluster -long
 
 Note that Geode has one additional member called **locator** running. The locator oversees the cluster members and provides registry and management services. It also by default provides a JMX management service with the frontend Pulse that is similar to Hazelcast Management Center.
 
-PULSE_URL: http://localhost:7070/pulse
+- Pulse URL: http://localhost:7070/pulse
+- Username: admin
+- Password: admin
 
 ![Pulse](images/geode-pulse.png)
 
