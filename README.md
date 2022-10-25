@@ -387,10 +387,33 @@ install_bundle -checkout bundle-none-tutorial-padogrid
 We have just installed `bundle-none-tutorial-padogrid` in `rwe-tutorial` as a workspace. A bundle can be installed several ways.
 
 - *As a workspace* - PadoGrid creates a new workspace and downloads the bundle contents in the new workspace. 
+```bash 
+install_bundle -download -workspace bundle-none-tutorial-padogrid
+```
+
 - As workspace components - PadoGrid installs the bundle in the current workspace. This might overwrite the existing components so it will prompt with a warning message for you to confirm.
+
+```bash
+install_bundle bundle-none-tutorial-padogrid
+```
+
 - *As a checked out workspace* - A git cloned workspace for you to make changes. This allows you to create and maintain your own online bundles.
+
+```bash
+install_bundle -checkout bundle-none-tutorial-padogrid
+```
+
 - *As a downloaded repo source distribution* - If your machine is behind a firewall and do not have access to the Internet, then you can manually download the bundle repo distribution from your browser and install it with the `install_bundle` command.
+
+```bash
+install_bundle bundle-none-tutorial-padogrid-master.zip
+```
+
 - *As a preview bundle* - Before you install the bundle, you can preview what it contains.
+
+```bash
+install_bundle -preview bundle-none-tutorial-padogrid
+```
 
 We specified the `-checkout` option to checkout the bundle as a workspace. Also, we did not specify the workspace name, so by default, we created the workspace using the bundle name, `bundle-none-tutorial-padogrid`.
 
