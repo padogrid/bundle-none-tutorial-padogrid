@@ -57,3 +57,8 @@ results
 *.sh0
 pom.xml0
 build
+
+apps/desktop*
+apps/granfana*
+apps/padodesktop*
+apps/perf_test*
