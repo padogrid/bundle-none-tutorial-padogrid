@@ -1170,7 +1170,7 @@ cd_app padodesktop/bin_sh
 ./desktop
 ```
 
-Login as before you did with HazelcastDesktop. Enter any user name and password to login. Once logged in, select any of the following regions (maps) from left pane to view their data.
+Login as you did before with HazelcastDesktop. Enter any user name and password to login. Once logged in, select any of the following regions (maps) from left pane to view their data.
 
 - eligibility
 - profile
@@ -1429,7 +1429,6 @@ join nw/suppliers s ON s.SupplierId:p.SupplierId
 ```
 
 [Lucene Query Paser Syntax](https://lucene.apache.org/core/9_4_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description) provides Lucene syntax details.
-
 
 ### OQL
 
