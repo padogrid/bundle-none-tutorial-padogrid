@@ -45,9 +45,11 @@ One of the following OS's or platforms:
 
 ## 0. Install PadoGrid
 
-PadoGrid requires `bash` and can be installed on Linux, macOS, Windows with Cygwin or WSL, Docker, or Kubernetes. It also requires Maven 3.x and Git for building apps and bundles. Java is also required by most of the cluster products. The optional `jq` executable is also recommended for handling JSON values. Make sure you have them installed before proceeding with the tutorial.
+PadoGrid requires `bash` and can be installed on Linux, macOS, Windows with Cygwin or WSL, Docker, or Kubernetes. It also requires Maven 3.x and Git for building apps and bundles. Java is also required by most of the cluster products. Furthermore, the optional `jq` executable is also recommended for handling JSON values. Make sure you have them installed before proceeding with this tutorial.
 
-### Linux, macOS, Windows (Cygwin, WSL)
+✏️  *If you are using a PadoGrid container, then all the required software components are already installed.*
+
+### 0.1. Linux, macOS, Windows (Cygwin, WSL)
 
 By default, PadoGrid installs in your home directory under the `~/Padogrid` directory. You can change this directory by running the `install_padogrid` script. For our tutorial, let's install it in the default directory. The following `curl` command silently installs PadoGrid and Hazelcast OSS.
 
@@ -62,31 +64,49 @@ Upon installation, execute the following to initialize PadoGrid. Note that PadoG
 echo ". ~/Padogrid/workspaces/myrwe/initenv.sh -quiet" >> ~/.bashrc
 ```
 
-### Docker
+### 0.2. Docker
+
+To login directly to PadoGrid container:
 
 ```bash
 docker run -it --rm padogrid/padogrid /bin/bash
 ```
 
-### Podman
+To launch PadoGrid JupyterLab:
 
 ```bash
-podman run -it --rm padogrid/padogrid /bin/bash
+docker run --rm -d -p 8888:8888 padogrid/padogrid
+```
+JupyterLab URL: https://0.0.0.0:8888/lab/workspaces/myrwe
+
+### 0.3. Podman
+
+To login directly to PadoGrid container:
+
+```bash
+podman run --rm -it padogrid/padogrid /bin/bash
 ```
 
-### Kubernetes
+To launch PadoGrid JupyterLab:
+
+```bash
+podman run --rm -d -p 8888:8888 padogrid/padogrid
+```
+JupyterLab URL: https://0.0.0.0:8888/lab/workspaces/myrwe
+
+### 0.4. Kubernetes
 
 ```bash
 kubectl run padogrid --image=docker.io/padogrid/padogrid
 ```
 
-### OpenShift
+### 0.5. OpenShift
 
 ```bash
 oc run padogrid --image=docker.io/padogrid/padogrid
 ```
 
-### Directory Layout
+### 0.6. Directory Layout
 
 Let's take a look at the default directory where PadoGrid is installed.
 
@@ -101,11 +121,11 @@ You should see the directory structure similar to the following.
 ```console
 ~/Padogrid/
 ├── downloads
-│   ├── hazelcast-5.1.4-slim.tar.gz
-│   └── padogrid_0.9.21.tar.gz
+│   ├── hazelcast-5.2.1-slim.tar.gz
+│   └── padogrid_0.9.22.tar.gz
 ├── products
-│   ├── hazelcast-5.1.4-slim
-│   └── padogrid_0.9.21
+│   ├── hazelcast-5.2.1-slim
+│   └── padogrid_0.9.22
 ├── snapshots
 └── workspaces
     └── myrwe
@@ -122,9 +142,9 @@ tree -L 2 /opt/padogrid
 ├── downloads
 ├── padogrid_start
 ├── products
-│   ├── hazelcast-5.1.3-slim
-│   ├── hazelcast-management-center-5.1.4
-│   └── padogrid_0.9.21
+│   ├── hazelcast-5.2.1-slim
+│   ├── hazelcast-management-center-5.2.0
+│   └── padogrid_0.9.22
 └── workspaces
     └── myrwe
 ```
@@ -159,9 +179,9 @@ Output:
             └── workspaceenv.sh
 ```
 
-### Uninstalling PadoGrid
+### 0.7. Uninstalling PadoGrid
 
-PadoGrid is uninstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. The following completely removes PadoGrid including workspaces.
+PadoGrid is uninstalled by removing the `~/PadoGrid` and `~/.padogrid` directories, and removing the PadoGrid initialization line in the `.bashrc` file. Executing the following commands completely removes PadoGrid including workspaces.
 
 ```bash
 # Remove all PadoGrid directories
@@ -174,7 +194,7 @@ sed -i 0 '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' ~/.bashrc
 sed -i0 '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' ~/.bashrc
 ```
 
-:pencil2: The above removes PadoGrid and all PadoGrid installed products and workspaces. If you have PadoGrid clusters and applications running, then make sure you stop them first before removing PadoGrid. Please see [FAQ](https://github.com/padogrid/padogrid/wiki/faq-How-do-I-stop-all-cluster-processes-started-by-PadoGrid) for stopping all cluster processes started by PadoGrid.
+✏️  *The above removes PadoGrid and all PadoGrid installed products and workspaces. If you have PadoGrid clusters and applications running, then make sure you stop them first before removing PadoGrid. Please see [FAQ](https://github.com/padogrid/padogrid/wiki/faq-How-do-I-stop-all-cluster-processes-started-by-PadoGrid) for stopping all cluster processes started by PadoGrid.*
 
 ## 1. PadoGrid Help
 
@@ -284,9 +304,9 @@ The sub-commands begin with the following verbs.
 - `vm_`(vm specific commands)
 
 
-## 1. View PadoGrid environment
+## 2. View PadoGrid environment
 
-When you installed PadoGrid, it created the default RWE, `myrwe`, and workspace, `myws`. You can view the PadoGrid workspace environment by executing `padogrid` as follows.
+When you installed PadoGrid, the default RWE, `myrwe`, and workspace, `myws` are automatically created. You can view the PadoGrid workspace environment by executing `padogrid` as follows.
 
 ```bash
 padogrid
@@ -315,7 +335,7 @@ Root Workspaces Environments (RWEs)
 
 An RWE (Root Workspaces Environment) is a workspace root directory that contains one or more workspaces. You can have more than one RWE, each containing their own set of workspaces. A workspace contains PadoGrid components such as apps, clusters, Docker, groups, Kubernetes, and PadoGrid pods (Vagrant VMs). We will explore all the components individually.
 
-By default, PadoGrid initailly installs the RWE named, `myrwe`, and creates the workspace named, `myws` in the RWE, `myrwe`.
+By default, PadoGrid initially installs the RWE named, `myrwe`, and creates the workspace named, `myws` in that RWE.
 
 You can also view each PadoGrid component using the `show_*` commands.
 
@@ -333,13 +353,13 @@ show_workspace
 show_cluster
 ```
 
-## 2. Create a new RWE
+## 3. Create RWE
 
 Let's create a new RWE from which we will conduct our tutorial. We do this by running `create_rwe`. The `create_rwe` command by default runs interactively prompting for inputs. To run it non-interactively, you need to specify the `-quiet` option.
 
-:pencil2: Keep in mind that an RWE is a top directory in which workspaces are stored. Similarly, a workspace is a directory in which PadoGrid components are stored.
+✏️  Keep in mind that an RWE is a top directory in which workspaces are stored. Similarly, a workspace is a directory in which PadoGrid components are stored.
 
-### 2.1. Interactive RWE
+### 3.1. Interactive RWE
 
 For our tutorial, let's run it non-interactively as shown below.
 
@@ -347,11 +367,11 @@ For our tutorial, let's run it non-interactively as shown below.
 create_rwe -quiet -rwe rwe-tutorial
 ```
 
-### 2.2. Non-interactive RWE
+### 3.2. Non-interactive RWE
 
 If you run `create_rwe` without the `-quiet` option then it will prompt for the following information.
 
-:exclamation: All paths must be absolute paths.
+❗ All paths must be absolute paths.
 
 - Product installation path: `~/Padogrid/products/hazelcast-5.1.4-slim`
 - RWE base path: `~/Padogrid/workspaces`
@@ -401,7 +421,7 @@ Creating an RWE as follows...
 Enter 'c' to continue, 'r' to re-enter, 'q' to quit: c
 ```
 
-## 3. Switch RWE
+## 4. Switch RWE
 
 To use the RWE you just created, we need to switch into that RWE. By switching, we are changing the current context. We can change the context of RWE, workspace, cluster, group, and pod. Once in the switched context, then you are in that context until you switch into another context. You can check yor current context by executing `pwd_*` commands.
 
@@ -436,7 +456,7 @@ show_workspace
 show_workspace -workspace myws
 ```
 
-## 4. Install this bundle
+## 5. Install this bundle
 
 Let's install this bundle in the `rwe-tutorial` RWE.
 
@@ -507,7 +527,9 @@ Switch Command:
    switch_rwe rwe-tutorial bundle-none-tutorial-padogrid
 ```
 
-## 5. Create a Hazelcast cluster
+## 6. Create a Hazelcast cluster
+
+✏️  *This chapter is for your information only. Our tutorial assumes you are running all software components on your local machine.*
 
 We have installed Hazelcast OSS when we installed PadoGrid. Let's create a Hazelcast cluster. The following command creates the default Hazelcast cluster named, `myhz`.
 
@@ -538,11 +560,13 @@ Output:
 
 By default, PadoGrid creates a cluster with two (2) members and one (1) Management Center instance. The cluster you created is a local cluster that is configured to run on your machine only. It will start both members and a Management Center on your machine.
 
-## 6. Enable VMs
+## 7. Enable VMs
+
+✏️  *This section is for your information only. Our tutorial assumes that you are running all software components on your local machine.*
 
 If you wish to distribute your workspace so that the cluster can run on remote machines, then you would need to provide the remote machine addresses. This can be done per cluster or per the entire workspace as described below.
 
-### Enable VM workspace
+### 7.1. Enable VM workspace
 
 In order to distribute a workspace, we need to enable VMs. This is typically done when we create a workspace by running `create_workspace`, but for us, since we already have a workspace created, let's configure the workspace instead.
 
@@ -575,7 +599,7 @@ cp /path/to/my/privateKey.pem .
 chmod 400 privateKey.pem
 ```
 
-### Enable VM cluster
+### 7.2. Enable VM cluster
 
 Every cluster you create, either Hazelcast or other clusters, the PadoGrid cluster settings are configured in the cluster's `etc/cluster.properties` file. This is the only file that is PadoGrid specific in terms of configuring clusters. All others are product specific and you follow the configuration instructions in their respective product documentation.
 
@@ -627,7 +651,7 @@ Output:
   Switch Cluster: switch_rwe rwe-tutorial bundle-none-tutorial-padogrid; switch_cluster myhz
 ```
 
-## 7. Start Hazelcast cluster
+## 8. Start Hazelcast cluster
 
 Either you have a VM-enabled workspace or not, the PadoGrid commands work the same way. Let's start the cluster and Hazelcast Management Center.
 
@@ -664,7 +688,7 @@ Upon successful connection, you should see the Management Center view similar to
 
 ![Hazelcast Management Center](images/management-center.png)
 
-## 8. Ingest data
+## 9. Ingest data
 
 PadoGrid includes several apps that are tailored to each product. The `perf_test` app is most commonly used for ingesting mock data into clusters. Let's install `perf_test` and ingest data.
 
@@ -765,7 +789,7 @@ If you need to measure Hazelcast performance that is aligned with how your appli
 ./test_group -run
 ```
 
-:pencil2: The performance metrics are placed in the `../results` directory for each `test_` script run.
+✏️  The performance metrics are placed in the `../results` directory for each `test_` script run.
 
 There are many other features that are included in `perf_test`. The following is a list of core features. See [`perf_test` README.md](https://github.com/padogrid/padogrid/blob/develop/padogrid-deployment/src/main/resources/hazelcast/apps/perf_test/README.md) for details.
 
@@ -808,7 +832,7 @@ You can now view the data by running `read_cache` as follows. The mock data is s
 ./read_cache nw/orders
 ```
 
-## 9. Install and run desktop app
+## 10. Install and run desktop app
 
 PadoGrid includes a HazelcastDesktop app that supports PadoGrid's own HQL (Hazelcast Query Language). HQL is similar to SQL introduced in Hazelcast 5.1. Its query engine is entirely written using the Hazelcast API and unlike Hazelcast's SQL which only runs on Hazelcast 5.1+, HQL runs on Hazelcast 3.x, 4.x, and 5.x. It has some limitations such as no support for `limit` and select projections, however. If you can live with these limitations then it is a great tool for development, tests, and troubleshooting data problems.
 
@@ -830,13 +854,13 @@ Once logged in, select any of the maps shown in the left pane or enter a select 
 
 ![Hazelcast Desktop](images/hazelcast-desktop.png)
 
-## 10. Install and run Prometheus and Grafana
+## 11. Install and run Prometheus and Grafana
 
 PadoGrid also supports Prometheus and Grafana for monitoring JMX metrics in real time. The `install_padogrid` command does not support these products at this time, however. You need to manually install and run them as described in the following link.
 
 https://github.com/padogrid/padogrid/wiki/Hazelcast-Grafana-App
 
-## 11. View workspaces
+## 12. View workspaces
 
 Let's now view the workspaces to see what we have created so far. 
 
@@ -871,7 +895,19 @@ Switch Command:
    switch_rwe rwe-tutorial bundle-none-tutorial-padogrid
 ```
 
-## 12. Summary
+
+## 13. Stop Hazelcast cluster
+
+We can now stop the Hazelcast cluster and Management Center.
+
+```bash
+# The '-all' option stops both the cluster and Management Center
+stop_cluster -all
+```
+
+Don't forget to close HazelcastDesktop.
+
+## 14. Hazelcast Summary
 
 We have so far accomplished the following.
 
@@ -886,21 +922,9 @@ We have so far accomplished the following.
 - Installed and executed HazelcastDesktop
 - Installed and executed Prometheus and Grafana 
 
-
-## 13. Stop Hazelcast cluster
-
-We can now stop the Hazelcast cluster and Management Center.
-
-```bash
-# The '-all' option stops both the cluster and Management Center
-stop_cluster -all
-```
-
-Don't forget to close HazelcastDesktop.
-
 ---
 
-## 14. Install Geode/GemFire
+## 15. Install Geode/GemFire
 
 Let's now try another product, Geode. Keep in mind that all of the commands that we used previously for Hazelcast also apply to other products. 
 
@@ -909,7 +933,7 @@ install_padogrid -product geode
 update_products -product geode
 ```
 
-## 15. Create and run Geode cluster
+## 16. Create and run Geode cluster
 
 Once installed, you can create a cluster as before.
 
@@ -936,7 +960,7 @@ Note that Geode has one additional member called **locator** running. The locato
 
 ![Pulse](images/geode-pulse.png)
 
-## 16. Create and run `perf_test_geode` app
+## 17. Create and run `perf_test_geode` app
 
 ```bash
 create_app -product geode -name perf_test_geode
@@ -991,20 +1015,20 @@ Output:
 ...
 ```
 
-## 17. Install and run Prometheus and Grafana
+## 18. Install and run Prometheus and Grafana
 
 PadoGrid also supports Prometheus and Grafana for monitoring JMX metrics in real time. The `install_padogrid` command does not support these products at this time, however. You need to manually install and run them as described in the following link.
 
 https://github.com/padogrid/padogrid/wiki/Geode-Grafana-App
 
-## 18. Stop Geode cluster
+## 19. Stop Geode cluster
 
 ```bash
 # The '-all' option stops both members and locators
 stop_cluster -all
 ```
 
-## 19. Group clusters
+## 20. Group clusters
 
 A typical system architecture is comprised of a number of clusters. Instead of managing clusters individually, you can also manage them in a single group. This is achieved by creating a group and adding clusters to the group.
 
@@ -1081,7 +1105,7 @@ If you need to remove clusters from a group, execute the `remove_cluster` comman
 remove_cluster -group datagrids -cluster myhz
 ```
 
-## 20. Stop or kill workspaces and RWEs
+## 21. Stop or kill workspaces and RWEs
 
 Like groups, workspaces and RWEs can be started and stopped.
 
@@ -1101,7 +1125,7 @@ kill_rwe -rwe rwe-tutorial -all
 
 ---
 
-## 21. Install Pado
+## 22. Install Pado
 
 Pado is a platform that federates data grids into a single logical data hub, providing a single entry point for accessing global data. PadoGrid fully integrates Pado providing the ability to seamlessly run Pado and its applications in PadoGrid workspaces. 
 
@@ -1117,7 +1141,7 @@ install_padogrid -product padodestop
 update_product -product padodesktop
 ```
 
-## 22. Create and start PadoLite cluster
+## 23. Create and start PadoLite cluster
 
 PadoLite is a stripped down, non-federated version of Pado for including support for Pado features in Geode and GemFire. With PadoLite, you get all Pado features that can be run only in a single cluster. See [Pado](https://github.com/netcrest/pado) for details.
 
@@ -1160,7 +1184,7 @@ query --query="select * from /nw/orders"
 quit
 ```
 
-## 23. Create and run PadoDesktop app
+## 24. Create and run PadoDesktop app
 
 For Geode and GemFire, we can use PadoDesktop to browse the data stored in the cluster. Note that PadoDesktop can only run on Pado-enabled clusters. Let's create and run a PadoDekstop app instance.
 
@@ -1186,7 +1210,7 @@ select * from /nw/orders
 
 ![Pado Desktop](images/padodesktop.png)
 
-## 24. Stop PadoLite cluster
+## 25. Stop PadoLite cluster
 
 ```bash
 # The '-all' option stops both members and locators
@@ -1197,7 +1221,7 @@ Don't forget to close PadoDesktop.
 
 ---
 
-## 25. Create and start federated Pado clusters
+## 26. Create and start federated Pado clusters
 
 Pado federates Geode/GemFire clusters providing a single logical entry point for globally managing data grids. It provides essential design patterns that may be applied in building global data hubs. It is a working prototype that addresses many of data hub related problems.
 
@@ -1319,7 +1343,7 @@ The `start_group` command will start the five (5) Pado clusters that you created
 
 If you don't have enough free memory then you can remove some of the clusters using the `remove_cluster` command, which removes the specified cluster and updates the group accordingly. The following example remove the `grid4` cluster.
 
-:exclamation: *Do not remove `grid0` which is the parent grid that orchestrates other grids.*
+❗ *Do not remove `grid0` which is the parent grid that orchestrates other grids.*
 
 ```bash
 # Remove cluster named 'grid4'
@@ -1345,7 +1369,7 @@ show_group
 show_group -long
 ```
 
-## 26. Ingest data into Pado clusters
+## 27. Ingest data into Pado clusters
 
 You have five (5) clusters powered by Pado. Unlike PadoLite, the Pado API is required to ingest data into Pado grids. Pado includes several test scripts for ingesting data. Let's ingest temporal data.
 
@@ -1384,7 +1408,7 @@ cd bin_sh
 ./update_keytype -reset
 ```
 
-## 27. View Pado clusters
+## 28. View Pado clusters
 
 You can use PadoDesktop to view the Pado clusters.
 
@@ -1401,7 +1425,7 @@ Pado supports a hybrid language called PQL (Pado Query Language) that combines s
 
 Try the following examples:
 
-### PQL
+### 28.1. PQL
 
 ```
 --Query all account data
@@ -1430,7 +1454,7 @@ join nw/suppliers s ON s.SupplierId:p.SupplierId
 
 [Lucene Query Paser Syntax](https://lucene.apache.org/core/9_4_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description) provides Lucene syntax details.
 
-### OQL
+### 28.2. OQL
 
 Pado creates all *grid paths* under the unique grid ID, which is analogous to the cluster name. For example, the parent grid has the grid ID, 'grid0'. To execute OQL statements, the region path must include the grid ID as shown in the examples shown below.
 
@@ -1439,7 +1463,7 @@ Pado creates all *grid paths* under the unique grid ID, which is analogous to th
 select * from /grid0/account
 ```
 
-### Server and Buckets
+### 28.3. Server and Buckets
 
 You can also target your queries to individual servers and buckets. From the "Server" tab, first select a region path, server and bucket. Then execute your OQL statement.
 
@@ -1448,13 +1472,13 @@ You can also target your queries to individual servers and buckets. From the "Se
 select * from /grid0/account
 ```
 
-### Virtual Path
+### 28.4. Virtual Path
 
 From the left lower pane, select any of the example virtual paths. Depending on which one you select you will see its details in the Virtual Entity or Virtual Stitch pane. The following image shows query results of the virtual path, `entity/nw/order` that requires the input parameters of `CustomerId`, `OrderId`, and `ShipVia`. Note that the virtual path has one-to-one and one-to-many entity relationships defined. The query result shows an aggregated list of `OrderDetailList`.
 
 ![Pado Desktop Virtual Path](images/padodesktop-vp.png)
 
-## 28. Stop Pado clusters
+## 29. Stop Pado clusters
 
 ```bash
 stop_group -all
@@ -1464,7 +1488,7 @@ Don't forget to close PadoDesktop.
 
 ---
 
-## 29. Some bundles to try
+## 30. Some bundles to try
 
 [Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a complete list of public bundles that are readily available to you. Some of the bundles that you may want to supplement this tutorial are listed below.
 
@@ -1486,7 +1510,7 @@ show_bundle -product hazelcast -header
 
 ---
 
-## 30. Multitenancy
+## 31. Multitenancy
 
 PadoGrid can be configured with multitenancy to provide workspace access to multiple users. Please see the following link for instructions.
 
