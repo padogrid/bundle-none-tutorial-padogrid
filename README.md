@@ -856,9 +856,28 @@ Once logged in, select any of the maps shown in the left pane or enter a select 
 
 ## 11. Install and run Prometheus and Grafana
 
-PadoGrid also supports Prometheus and Grafana for monitoring JMX metrics in real time. The `install_padogrid` command does not support these products at this time, however. You need to manually install and run them as described in the following link.
+PadoGrid supports Prometheus and Grafana for monitoring JMX metrics in real time. You can install them by running `install_padogrid` as follows.
 
-https://github.com/padogrid/padogrid/wiki/Hazelcast-Grafana-App
+
+```bash
+install_padogrid -product prometheus
+install_padogrid -product grafana-enterprise
+update_products -product prometheus
+update_products -product grafana-enterprise
+```
+
+Once installed, create and run the `grafana` app as follows.
+
+```bash
+create_app -product hazelcast -app grafana
+cd_app grafana/bin_sh
+./start_prometheus
+./start_grafana
+```
+
+You can find further details from the following link.
+
+  - https://github.com/padogrid/padogrid/wiki/Hazelcast-Grafana-App
 
 ## 12. View workspaces
 
@@ -895,14 +914,18 @@ Switch Command:
    switch_rwe rwe-tutorial bundle-none-tutorial-padogrid
 ```
 
+## 13. Close workspace
 
-## 13. Stop Hazelcast cluster
-
-We can now stop the Hazelcast cluster and Management Center.
+We have just completed the basics of operating clusters in a PadoGrid workspace. Let's now close the workspace by shutting down the software components.
 
 ```bash
 # The '-all' option stops both the cluster and Management Center
 stop_cluster -all
+
+# Stop Grafana and Prometheus
+cd_app grafana/bin_sh
+./stop_grafana
+./stop_prometheus
 ```
 
 Don't forget to close HazelcastDesktop.
@@ -921,6 +944,7 @@ We have so far accomplished the following.
   - read_cache to read data stored in the cluster
 - Installed and executed HazelcastDesktop
 - Installed and executed Prometheus and Grafana 
+- Closed the workspace by shutting down the Hazelcast cluster, Prometheus, and Grafana
 
 ---
 
