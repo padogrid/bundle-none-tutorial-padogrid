@@ -14,7 +14,7 @@ install_padogrid -product pado
 update_padogrid -product pado
 
 # Install PadoDesktop
-install_padogrid -product padodestop
+install_padogrid -product padodesktop
 update_product -product padodesktop
 ```
 
