@@ -71,9 +71,15 @@ This tutorial is broken down to sections in individually enumerated markdown fil
 - [26-bundles.md](26-bundles.md)
 - [27-multitenancy.md](27-multitenancy.md)
 
+## Preface
+
+This bundle is best run using JupyterLab. The following manual page describes how to install and run JupyterLab in PadoGrid.
+
+<https://github.com/padogrid/padogrid/wiki/JupyterLab>
+
 ## Introduction
 
-PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of script but they are typically for running a single cluster member instance on your local machine. You are left with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a cluster. The complexity of this task multiplies as you add more members to the cluster and include more clusters and products in your system architecture, and not to mention, a steep learning curve of each product's scripts demanding a significant amount of time and efforts.
+PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. Each product comes with a simple set of script but they are typically for running a single cluster member instance on your local machine. You are left with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a cluster. The complexity of this task multiplies as you add more members to the cluster, and include more clusters and products in your system architecture. A steep learning curve of each product's scripts demands a significant amount of time and efforts.
 
 PadoGrid solves this problem by providing a single, unified set of commands for managing data grid products. The same set of commands applies to all the [supported data grid products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, they can be found in *bundles* as part of solutions. Each bundle is a shrink-wrapped, turnkey solution capturing an end-to-end use case that you can simply install and run. Including this tutorial bundle, there are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) that are made readily available for you to use. All for free and all for fun!
 
