@@ -36,6 +36,7 @@ To launch PadoGrid JupyterLab:
 ```bash
 docker run --rm -d -p 8888:8888 padogrid/padogrid
 ```
+
 JupyterLab URL: https://0.0.0.0:8888/lab/workspaces/myrwe
 
 ## 0.3. Podman
@@ -51,18 +52,27 @@ To launch PadoGrid JupyterLab:
 ```bash
 podman run --rm -d -p 8888:8888 padogrid/padogrid
 ```
+
 JupyterLab URL: https://0.0.0.0:8888/lab/workspaces/myrwe
 
 ## 0.4. Kubernetes
 
 ```bash
+# Launch padogrid pod
 kubectl run padogrid --image=docker.io/padogrid/padogrid
+
+# Login to padogrid pod
+kubectl exec -it padogrid -- bash
 ```
 
 ## 0.5. OpenShift
 
 ```bash
+# Launch padogrid pod
 oc run padogrid --image=docker.io/padogrid/padogrid
+
+# Login to padogrid pod
+oc exec -it padogrid -- bash
 ```
 
 ## 0.6. Directory Layout
