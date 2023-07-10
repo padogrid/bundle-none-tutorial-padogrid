@@ -4,7 +4,7 @@
 
 ## 26. Some bundles to try
 
-The [Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a complete list of public bundles that are readily available to you to try out.
+The [Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a complete list of public bundles that are readily available to you.
 
 You can also use the `show_bundle`command to list all the online bundles as follows.
 
