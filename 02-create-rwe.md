@@ -40,7 +40,7 @@ Output:
 
 ```console
 Enter the default product home path. Leave blank to skip. The supported products are
-[geode gemfire hazelcast snappydata coherence redis spark kafka hadoop]
+[geode gemfire hadoop hazelcast kafka mosquitto redis snappydata spark coherence]
 []:
 /Users/dpark/Padogrid/products/hazelcast-5.1.4-slim
 Product selected: hazelcast
@@ -73,6 +73,8 @@ Enter 'c' to continue, 'r' to re-enter, 'q' to quit: c
 ## 2.3. Switch RWE
 
 To use the RWE you just created, we need to switch into that RWE. By switching, we are changing the current context. We can change the context of RWE, workspace, cluster, group, and pod. Once in the switched context, then you are in that context until you switch into another context. You can check yor current context by executing `pwd_*` commands.
+
+✏️  Note that all PadoGrid commands are bounded to your shell. They do not propagate to other shells. This allows you to open multiple terminals and run PadoGrid commands independent of each other.
 
 ```bash
 # Check current context (this outputs myrwe)

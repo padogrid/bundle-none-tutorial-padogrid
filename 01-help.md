@@ -127,8 +127,8 @@ Output:
 |   ___/  /  /_\  \   |  |  |  |  |  |  | |  | |_ | |      /     |  | |  |  |  |
 |  |     /  _____  \  |  '--'  |  '--'  | |  |__| | |  |\  \----.|  | |  '--'  |
 | _|    /__/     \__\ |_______/ \______/   \______| | _| '._____||__| |_______/
-Copyright 2020-2022 Netcrest Technologies, LLC. All rights reserved.
-Version: v0.9.22
+Copyright 2020-2023 Netcrest Technologies, LLC. All rights reserved.
+Version: v0.9.23
  Manual: https://github.com/padogrid/padogrid/wiki
 Bundles: https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md
 
@@ -136,7 +136,7 @@ Root Workspaces Environments (RWEs)
 -----------------------------------
 /Users/dpark/Padogrid/workspaces
 └── myrwe
-    └── myws [padogrid_0.9.22]
+    └── myws [padogrid_0.9.28]
 ```
 
 An RWE (Root Workspaces Environment) is a workspace root directory that contains one or more workspaces. You can have more than one RWE, each containing their own set of workspaces. A workspace contains PadoGrid components such as apps, clusters, Docker, groups, Kubernetes, and PadoGrid pods (Vagrant VMs). We will explore all the components individually.

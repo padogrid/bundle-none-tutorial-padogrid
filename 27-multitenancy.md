@@ -2,7 +2,7 @@
 
 ---
 
-## 28. Multitenancy
+## 27. Multitenancy
 
 PadoGrid can be configured with multitenancy to provide workspace access to multiple users. Please see the following link for instructions.
 
