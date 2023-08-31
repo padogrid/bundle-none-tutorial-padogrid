@@ -16,7 +16,7 @@ install_padogrid -product geode
 update_products -product geode
 ```
 
-The `install_padogrid` command does not support installation of GemFire due to its sign-in requirement. You will need to download it manually by signing into the VMware download site. 
+The `install_padogrid` command does not support installation of GemFire due to its sign-in requirement. You will need to download it manually by signing into the VMware download site. We will use Geode instead.
 
 You can view all the download links including GemFire by specifying the usage option, `install_padogrid -?` as shown below.
 
@@ -42,7 +42,7 @@ Output:
 
 As you can see from the output, in addtion to GemFire, there are other products that you would need to manually download and install.
 
-Once you have downloaded software distributions from the download sites, you inflate the distributions in the PadoGrid `products` directory. The following inflates a GemFire distribution.
+To install the downloaded prouct distributions, inflate them in the PadoGrid `products` directory. For example, the following inflates a GemFire distribution.
 
 ```bash
 tar -C ~/Padogrid/products/ -xzf $PADOGRID_ENV_BASE_PATH/downloads/vmware-gemfire-9.15.3.tgz
@@ -51,7 +51,7 @@ tar -C ~/Padogrid/products/ -xzf $PADOGRID_ENV_BASE_PATH/downloads/vmware-gemfir
 ✏️ `PADOGRID_ENV_BASE_PATH` is by default set to `~/Padogrid/products` or `/opt/padogrid/products`.
 
 
-Once installed, update the workspace with the product version that you want to use.
+Once installed, update the workspace with the product version that you want to use. The `update_products` command automatically picks up all of the products in the `products` directory.
 
 ```bash
 # Update GemFire product

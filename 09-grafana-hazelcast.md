@@ -2,7 +2,7 @@
 
 ---
 
-# 9. Install and run Prometheus and Grafana
+# 9. Install and Run Prometheus and Grafana
 
 PadoGrid supports Prometheus and Grafana for monitoring JMX metrics in real time. You can install them by running `install_padogrid` as follows.
 
@@ -21,6 +21,113 @@ create_app -product hazelcast -app grafana -name grafana_hz
 cd_app grafana_hz/bin_sh
 ./start_prometheus
 ./start_grafana
+```
+
+## 9.1. Configure Ports
+
+Follow the instructions in one of the subsections that applies to your environment.
+
+### 9.1.1. Local Machine
+
+Nothing to do.
+
+### 9.1.2. Docker
+
+Nothing to do. Docker ports have already beeen exposed.
+
+### 9.1.3. Kubernetes
+
+Forward Prometheus and Grafana ports to your host OS.
+
+```bash
+# Prometheus
+kubectl port-forward svc/padogrid 9090
+# Grafana
+kubectl port-forward svc/padogrid 3000
+```
+
+### 9.1.4. OpenShift
+
+Expose the Prometheus and Grafana ports by executing the following:
+
+```bash
+oc expose svc padogrid --name prometheus --port 9090
+oc expose svc padogrid --name grafana --port 3000
+oc get route
+```
+
+Output:
+
+```console
+NAME           HOST/PORT                                PATH   SERVICES   PORT   TERMINATION   WILDCARD
+grafana        grafana-padogrid.apps-crc.testing               padogrid   3000                 None
+hazelcast-mc   hazelcast-mc-padogrid.apps-crc.testing          padogrid   8080                 None
+padogrid       padogrid-padogrid.apps-crc.testing              padogrid   8888                 None
+prometheus     prometheus-padogrid.apps-crc.testing            padogrid   9090                 None
+```
+
+## 9.2. Local Machine, Docker, Kubernetes
+
+### 9.2.1. Prometheus
+
+Prometheus URL: <http://localhost:9090>
+
+To view a complete list of metrics:
+
+- All avalable metrics: http://localhost:9090/api/v1/label/name/values
+- Metadata: http://localhost:9090/api/v1/metadata
+- Prometheus specifics: http://localhost:9090/metrics
+- Federated:
+  ```bash
+  curl -G http://localhost:9090/federate -d 'match[]={__name__!=""}'
+  ```
+
+### 9.2.2. Grafana
+
+Grafana URL: <http://localhost:3000>
+
+```console
+User Name: admin
+Password: admin
+```
+
+The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in setenv.sh. Note that the included commands require the user with administration privileges.
+
+
+## 9.3. OpenShift
+
+### 9.3.1 Prometheus
+
+Prometheus URL: <http://prometheus-padogrid.apps-crc.testing>
+
+To view a complete list of metrics:
+
+- All avalable metrics: http://prometheus-padogrid.apps-crc.testing/api/v1/label/name/values
+- Metadata: http://prometheus-padogrid.apps-crc.testing/api/v1/metadata
+- Prometheus specifics: http://prometheus-padogrid.apps-crc.testing/metrics
+- Federated:
+  ```bash
+  curl -G http://localhost:9090/federate -d 'match[]={__name__!=""}'
+  ```
+
+### 9.3.2. Grafana
+
+Grafana URL: <http://grafana-padogrid.apps-crc.testing>
+
+```console
+User Name: admin
+Password: admin
+```
+
+The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in setenv.sh. Note that the included commands require the user with administration privileges.
+
+## 9.4. Import Dashboards to Grafana
+
+The dashboards are organized by Grafana folders and they can be found in the following directory:
+
+```bash
+cd_app grafana
+ls etc/dashboards
 ```
 
 You can find further details from the following link.

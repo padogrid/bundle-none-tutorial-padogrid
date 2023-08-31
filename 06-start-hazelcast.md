@@ -28,7 +28,66 @@ show_mc
 show_mc -long
 ```
 
-You can click on the Management Center URL displayed to manage the Hazelcast cluster from the browser. PadoGrid closely follows the Hazelcast default settings. This means the default Hazelcast cluster name is **dev**, and not **myhz**. This, of course, can be changed easily in the Hazelcast configuration file, but for now, let's stick with **dev**.
+## 6.1. Configure Ports
+
+Follow the instructions in one of the subsections that applies to your environment.
+
+### 6.1.1.  Local Machine
+
+Nothing to do.
+
+### 6.1.2. Docker
+
+Nothing to do. Docker ports have already beeen exposed.
+
+### 6.1.3. Kubernetes
+
+Forward the Pulse port to your host OS.
+
+```bash
+# Hazelcast Management Center
+kubectl port-forward svc/padogrid 8080
+```
+
+### 6.1.4. OpenShift
+
+Expose the Pulse port by executing the following:
+
+```bash
+oc expose svc padogrid --name hazelcast-mc --port 8080
+oc get route
+```
+
+Output:
+
+```console
+NAME           HOST/PORT                                PATH   SERVICES   PORT   TERMINATION   WILDCARD
+hazelcast-mc   hazelcast-mc-padogrid.apps-crc.testing          padogrid   8080                 None
+padogrid       padogrid-padogrid.apps-crc.testing              padogrid   8888                 None
+```
+
+## 6.2. Local Machine, Docker, Kubernetes
+
+### 6.2.1. Hazelcast Management Center
+
+Pulse URL: 
+Helcast Management Center URL: <http://localhost:8080/hazelcast-mancenter>
+
+- Username: admin
+- Password: admin
+
+## 6.3. OpenShift
+
+### 6.3.1. Hazelcast Management Center
+
+Geode/GemFire Pulse URL: <http://hazelcast-mc-padogrid.apps-crc.testing>
+
+- Username: admin
+- Password: admin
+
+## 6.4. Browse Hazelcast Management Center
+
+PadoGrid closely follows the Hazelcast default settings. This means the default Hazelcast cluster name is **dev**, and not **myhz**. This, of course, can be changed easily in the Hazelcast configuration file, but for now, let's stick with **dev**.
 
 - From the browser, select the *ENABLE* button for *DEV MODE*.
 - Select the *Add* button under the *Cluster Connections* pane.

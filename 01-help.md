@@ -15,31 +15,34 @@ Output:
 
 ```console
 Display all 100 possibilities? (y or n)
--?                  create_workspace    pwd_workspace       start_jupyter
--product            find_padogrid       remove_app          start_member
--rwe                help_padogrid       remove_cluster      start_pod
--version            install_bundle      remove_docker       start_workspace
-add_cluster         install_padogrid    remove_group        stop_cluster
-add_member          kill_cluster        remove_k8s          stop_group
-add_node            kill_group          remove_locator      stop_jupyter
-build_pod           kill_member         remove_member       stop_member
-cd_app              kill_rwe            remove_node         stop_pod
-cd_cluster          kill_workspace      remove_pod          stop_rwe
-cd_docker           list_apps           remove_workspace    stop_workspace
-cd_k8s              list_clusters       show_bundle         switch_cluster
-cd_pod              list_docker         show_cluster        switch_pod
-cd_rwe              list_groups         show_group          switch_rwe
-cd_workspace        list_k8s            show_jupyter        switch_workspace
-change_version      list_pods           show_log            uninstall_product
-clean_cluster       list_rwes           show_pod            update_products
-create_app          list_workspaces     show_products       vm_copy
-create_bundle       make_cluster        show_rwe            vm_deploy_bundle
-create_cluster      open_jupyter        show_workspace      vm_deploy_padogrid
-create_docker       open_vscode         shutdown_cluster    vm_download
-create_group        pwd_cluster         shutdown_rwe        vm_exec
-create_k8s          pwd_group           shutdown_workspace  vm_install
-create_pod          pwd_pod             start_cluster       vm_sync
-create_rwe          pwd_rwe             start_group         vm_test
+-?                  find_padogrid       remove_docker       stop_group
+-product            help_padogrid       remove_group        stop_jupyter
+-rwe                install_bundle      remove_k8s          stop_mc
+-version            install_padogrid    remove_member       stop_member
+add_cluster         install_rwe         remove_node         stop_pod
+add_member          kill_cluster        remove_pod          stop_rwe
+add_node            kill_group          remove_workspace    stop_workspace
+build_pod           kill_member         show_bundle         switch_cluster
+cd_app              kill_rwe            show_cluster        switch_group
+cd_cluster          kill_workspace      show_group          switch_pod
+cd_docker           list_apps           show_jupyter        switch_rwe
+cd_k8s              list_clusters       show_log            switch_workspace
+cd_pod              list_docker         show_mc             tools
+cd_rwe              list_groups         show_pod            uninstall_product
+cd_workspace        list_k8s            show_products       update_products
+change_version      list_pods           show_rwe            vc_publish
+clean_cluster       list_rwes           show_workspace      vc_start
+cp_sub              list_workspaces     shutdown_cluster    vc_subscribe
+create_app          make_cluster        shutdown_rwe        vm_copy
+create_bundle       open_jupyter        shutdown_workspace  vm_deploy_bundle
+create_cluster      open_vscode         start_cluster       vm_deploy_padogrid
+create_docker       pwd_cluster         start_group         vm_download
+create_group        pwd_group           start_jupyter       vm_exec
+create_k8s          pwd_pod             start_mc            vm_install
+create_pod          pwd_rwe             start_member        vm_show_products
+create_rwe          pwd_workspace       start_pod           vm_sync
+create_script       remove_app          start_workspace     vm_test
+create_workspace    remove_cluster      stop_cluster
 ```
 
 Each command has a man page providing usage details.
@@ -50,7 +53,7 @@ man show_rwe
 man start_cluster
 ```
 
-The same man page details that are tailored to the current PadoGrid workspace environment can be displayed by specifying the `-?` option.
+The same man pages that are tailored to the current PadoGrid workspace environment can be displayed by specifying the `-?` option.
 
 ```bash
 padogrid -?
@@ -128,7 +131,7 @@ Output:
 |  |     /  _____  \  |  '--'  |  '--'  | |  |__| | |  |\  \----.|  | |  '--'  |
 | _|    /__/     \__\ |_______/ \______/   \______| | _| '._____||__| |_______/
 Copyright 2020-2023 Netcrest Technologies, LLC. All rights reserved.
-Version: v0.9.23
+Version: v0.9.28
  Manual: https://github.com/padogrid/padogrid/wiki
 Bundles: https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md
 

@@ -4,7 +4,7 @@
 
 ## 16. Group clusters
 
-A typical system architecture is comprised of a number of clusters and you must manage them individually. To ease your tasks, PadoGrid provides a way to logically group multiple clusters into one so you can manage them as a single unit. This is achieved by creating a group and adding clusters to the group.
+A typical system architecture is comprised of more than one cluster. Managing multiple clusters individually is an error-prone and a time consuming task. To ease this task, PadoGrid provides a mechanism to logically group multiple clusters allowing you to manage them as a single unit. This is achieved by creating a group and adding clusters to the group.
 
 Let's create a group called, `datagrids` that contains the `myhz` and `mygeode` clusters.
 
@@ -40,7 +40,7 @@ Output:
         POD_TYPE: local
  Members Running: 0/2
       MC Running: 0/1
-         Version: 5.1.4
+         Version: 5.3.2
   Switch Cluster: switch_rwe rwe-bundles bundle-none-tutorial-padogrid; switch_cluster myhz
 
          CLUSTER: mygeode

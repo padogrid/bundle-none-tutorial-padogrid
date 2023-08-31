@@ -4,7 +4,7 @@
 
 # 5. Enable VMs
 
-✏️  *Our tutorial assumes that you are running this tutorial on your local machine. We will not use VMs. This chapter is for your information only.*
+✏️  *If you have access to one or more VMs, then we encourage you to try out the steps in this section. Otherwise, read through the steps to get familiar with how to distribute workspaces.*
 
 If you wish to distribute your workspace so that the cluster can run on remote machines, then you would need to provide the remote machine addresses. This can be done per cluster or per the entire workspace as described below.
 
@@ -43,7 +43,7 @@ chmod 400 privateKey.pem
 
 ## 5.2. Enable VM cluster
 
-Every cluster you create, either Hazelcast or other clusters, the PadoGrid cluster settings are configured in the cluster's `etc/cluster.properties` file. This is the only file that is PadoGrid specific in terms of configuring clusters. All others are product specific and you follow the configuration instructions in their respective product documentation.
+Every cluster you create, either Hazelcast or other products, the PadoGrid cluster settings are configured in the cluster's `etc/cluster.properties` file. This is the only file that is PadoGrid specific in terms of configuring clusters. All others are product specific and you follow the configuration instructions in their respective product documentation.
 
 Let's edit the `cluster.properties` file to enable VMs.
 
@@ -89,7 +89,7 @@ Output:
     MEMBER_COUNT: 4
  Members Running: 0/4
       MC Running: 0/1
-         Version: 5.1.4
+         Version: 5.3.2
   Switch Cluster: switch_rwe rwe-tutorial bundle-none-tutorial-padogrid; switch_cluster myhz
 ```
 

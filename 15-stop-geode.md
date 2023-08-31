@@ -2,9 +2,9 @@
 
 ---
 
-## 19. Stop Geode cluster
+## 15. Stop Geode cluster
 
-We have just completed the basics of operating Geode/GemFire clusters in PadoGrid. We saw that all the PadoGrid commands are same either you run Geode, GemFire, or Hazelcast. This is true for other products as well. For example, you can manage Redis, SnappyData, Coherence, Kafka, Confluent, Hadoop, and Spark using the same PadoGrid commands.
+We have just completed the basics of operating Geode/GemFire clusters in PadoGrid. We saw that all the PadoGrid commands are same either you run Geode, GemFire, or Hazelcast. This is true for other products as well. For example, you can manage Redis, SnappyData, Coherence, Kafka, Confluent, Mosquitto, Hadoop, and Spark using the same PadoGrid commands.
 
 Let's now stop the Geode cluster to prepare for the next section.
 

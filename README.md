@@ -42,10 +42,14 @@ One of the following OS's or platforms:
 
 This tutorial is broken down to sections in individually enumerated markdown files as follows.
 
+### PadoGrid 
 - [00-installation.md](00-installation.md)
 - [01-help.md](01-help.md)
 - [02-create-rwe.md](02-create-rwe.md)
 - [03-install-bundle.md](03-install-bundle.md)
+
+### Hazelcast
+
 - [04-create-hazelcast.md](04-create-hazelcast.md)
 - [05-vm-workspace.md](05-vm-workspace.md)
 - [06-start-hazelcast.md](06-start-hazelcast.md)
@@ -53,13 +57,21 @@ This tutorial is broken down to sections in individually enumerated markdown fil
 - [08-desktop-hazelcast.md](08-desktop-hazelcast.md)
 - [09-grafana-hazelcast.md](09-grafana-hazelcast.md)
 - [10-close-workspace.md](10-close-workspace.md)
+
+### Geode/GemFire
+
 - [11-install-geode.md](11-install-geode.md)
 - [12-create-geode.md](12-create-geode.md)
 - [13-ingest-data-geode.md](13-ingest-data-geode.md)
 - [14-grafana-geode.md](14-grafana-geode.md)
 - [15-stop-geode.md](15-stop-geode.md)
+
+### Group/Workspace
 - [16-group-clusters.md](16-group-clusters.md)
 - [17-stop-workspaces.md](17-stop-workspaces.md)
+
+### Pado
+
 - [18-install-pado.md](18-install-pado.md)
 - [19-create-padolite.md](19-create-padolite.md)
 - [20-create-padodesktop.md](20-create-padodesktop.md)
@@ -68,7 +80,12 @@ This tutorial is broken down to sections in individually enumerated markdown fil
 - [23-ingest-data-pado.md](23-ingest-data-pado.md)
 - [24-monitor-pado.md](24-monitor-pado.md)
 - [25-stop-pado.md](25-stop-pado.md)
+
+### Bundles
 - [26-bundles.md](26-bundles.md)
+
+### Multitenancy
+
 - [27-multitenancy.md](27-multitenancy.md)
 
 ## Preface

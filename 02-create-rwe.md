@@ -10,7 +10,7 @@ Let's create a new RWE from which we will conduct our tutorial. We do this by ru
 
 ## 2.1. Interactive RWE
 
-For our tutorial, let's run it non-interactively as shown below.
+For our tutorial, let's run it non-interactively by specifying `-quiet` as shown below.
 
 ```bash
 create_rwe -quiet -rwe rwe-tutorial
@@ -22,7 +22,7 @@ If you run `create_rwe` without the `-quiet` option then it will prompt for the 
 
 ❗ All paths must be absolute paths.
 
-- Product installation path: `~/Padogrid/products/hazelcast-5.1.4-slim`
+- Product installation path: `~/Padogrid/products/hazelcast-5.3.2-slim`
 - RWE base path: `~/Padogrid/workspaces`
 - RWE name: `rwe-tutorial`
 - JAVA_HOME path: `<Java installation path>`
@@ -42,7 +42,7 @@ Output:
 Enter the default product home path. Leave blank to skip. The supported products are
 [geode gemfire hadoop hazelcast kafka mosquitto redis snappydata spark coherence]
 []:
-/Users/dpark/Padogrid/products/hazelcast-5.1.4-slim
+/Users/dpark/Padogrid/products/hazelcast-5.3.2-slim
 Product selected: hazelcast
 Enter the RWE home path where your RWEs will be stored.
 [/Users/dpark/Padogrid/workspaces]:
@@ -53,7 +53,7 @@ Enter Java home path. Leave blank to skip.
 [/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home]:
 
 Enter product (hazelcast) home directory path. Leave blank to skip.
-[/Users/dpark/Padogrid/products/hazelcast-slim-5.1.4]:
+[/Users/dpark/Padogrid/products/hazelcast-slim-5.3.2]:
 
 Enter default workspace name [myws]:
 Enter default cluster name [myhz]:
@@ -63,7 +63,7 @@ Creating an RWE as follows...
             RWE Home: /Users/dpark/Padogrid/workspaces
             RWE Name: rwe-tutorial
            JAVA_HOME: /Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home
-        Product Home: /Users/dpark/Padogrid/products/hazelcast-5.1.4-slim
+        Product Home: /Users/dpark/Padogrid/products/hazelcast-5.3.2-slim
    Default Workspace: myws
      Default Cluster: myhz
           VM Enabled: false

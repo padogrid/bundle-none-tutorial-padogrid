@@ -4,7 +4,7 @@
 
 ## 13. Ingest data into Geode
 
-✏️ *All the PadoGrid commands shown here are exactly the same commands as the ones you executed in the Hazelcast tutorial sections.*
+✏️ *Note that even though you are running Geode/GemFire, all the PadoGrid commands shown here are exactly the same commands as the ones you executed in the Hazelcast tutorial sections. PadoGrid unifies the data grid products under the same set of lifecycle management commands.*
 
 Create and run `perf_test_geode` app:
 

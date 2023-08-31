@@ -4,7 +4,7 @@
 
 ## 17. Stop or kill workspaces and RWEs
 
-Like groups, workspaces and RWEs can be started and stopped.
+Like groups, workspaces and RWEs can be started and stopped as a singe unit.
 
 ✏️ *The `-all` option is for stopping or killing all components that are specific to individual products, i.e., locators, members, management center, leaders, workers, etc. Each product may have components other than members.*
 

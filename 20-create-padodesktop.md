@@ -6,6 +6,8 @@
 
 For Geode and GemFire, we can use PadoDesktop to browse the data stored in the cluster. Note that PadoDesktop can only run on Pado-enabled clusters. Let's create and run a PadoDekstop app instance.
 
+✏️  *The desktop app is a Java Swing application. To run it Container, Kubernetes or VM, you need to first install and run X11 on your host OS as described in the [X Window System](00-installation.md#06-x-window-system) section.*
+
 ```bash
 create_app -product geode -app padodesktop
 cd_app padodesktop/bin_sh

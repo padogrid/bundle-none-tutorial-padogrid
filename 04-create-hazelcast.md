@@ -30,10 +30,10 @@ Output:
         POD_TYPE: local
  Members Running: 0/2
       MC Running: 0/1
-         Version: 5.1.4
+         Version: 5.3.2
 ```
 
-By default, PadoGrid creates a cluster with two (2) members and one (1) Management Center instance. The cluster you created is a local cluster that is configured to run on your machine only. It will start both members and a Hazelcast Management Center instance on your machine.
+By default, PadoGrid creates a Hazelcast cluster with two (2) members and one (1) Management Center instance. The cluster you created is a local cluster that is configured to run on your machine only. It will start both members and a Hazelcast Management Center instance on your machine.
 
 ---
 

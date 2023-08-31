@@ -4,7 +4,7 @@
 
 # 3. Install bundle
 
-Let's install this bundle in the `rwe-tutorial` RWE.
+Let's install this tutorial bundle in the `rwe-tutorial` RWE.
 
 ```bash
 # Switch to rwe-tutorial if you haven't done so already
@@ -62,7 +62,7 @@ Output: You should see an empty workspace something like the following.
 
 ```console
 Workspace:
-   bundle-none-tutorial-padogrid [padogrid_0.9.22]
+   bundle-none-tutorial-padogrid [padogrid_0.9.28]
 
 RWE Directory:
    /Users/dpark/Padogrid/workspaces/rwe-tutorial

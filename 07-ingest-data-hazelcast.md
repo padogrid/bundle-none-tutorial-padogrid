@@ -82,7 +82,7 @@ Output:
 └── pom.xml
 ```
 
-The `perf_test` app directory contains mostly configuration files along with scripts to run the application. By default, it is configured to connect to the **dev** Hazelcast cluster, so you can simply run any of the scripts to connect to the cluster you have started.
+The `perf_test` app directory contains mostly configuration files along with scripts to run the application. By default, it is configured to connect to the **dev** Hazelcast cluster, so you can immediately run any of the scripts without configuring Hazelcast.
 
 The `test_ingestion` script ingests PBM (Pharmacy Benefit Management) data into the cluster. If you run it without the `-run` option then it will only display ingestion information of the configured test cases, providing a preview.
 
