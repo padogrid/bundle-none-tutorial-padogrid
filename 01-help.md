@@ -110,6 +110,7 @@ The sub-commands begin with the following verbs.
 - `update_` (update components)
 - `cp_` (Hazelcast CP commands)
 - `t_`(tool commands)
+- `vc`(virtual cluster specific commands)
 - `vm_`(vm specific commands)
 
 

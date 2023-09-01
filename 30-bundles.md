@@ -2,9 +2,9 @@
 
 ---
 
-## 26. Some bundles to try
+## 30. Bundles
 
-The [Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a complete list of public bundles that are readily available to you.
+The [Online Catalogs](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) provides a wide collection of public bundles that are readily available to you.
 
 You can also use the `show_bundle`command to list all the online bundles as follows.
 
@@ -30,6 +30,7 @@ Some of the bundles that you may want to supplement this tutorial are listed bel
 1. [bundle-geode-1-docker-debezium_ksqldb_confluent](https://github.com/padogrid/bundle-geode-1-docker-debezium_ksqldb_confluent) - A complete end-to-end CDC solution integrating MySQL-Debezium-Kafka Confluent-Kafka Connect-ksqlDB-Nifi-Schema Registry-Geode/GemFire. *Requires Docker.*
 1. [bundle-confluent-7-examples-python](https://github.com/padogrid/bundle-confluent-7-examples-python) - Kafka Confluent Python examples. *Requires JupyterLab.*
 1. [ bundle-hazelcast-5-app-ml_lstm-cluster-ml_jet](https://github.com/padogrid/bundle-hazelcast-5-app-ml_lstm-cluster-ml_jet) - Neural Network: LSTM RNN, AI/ML for forecasting future events. *Requires Python.*
+1. [Mosquitto/MQTT Virtual Cluster Tutorial](https://github.com/padogrid/bundle-mosquitto-tutorial-virtual-clusters) - An MQTT virtual cluster tutorial covering archetypes in detail.
 
 ---
 
