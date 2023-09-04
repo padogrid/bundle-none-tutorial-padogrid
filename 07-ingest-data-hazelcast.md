@@ -4,6 +4,16 @@
 
 # 7. Ingest data into Hazelcast
 
+---
+
+❗If you are running this tutorial in **Kubernetes/OpenShift** then unset the Kubernetes environment variables as shown below. These envrionment variables are preset by PadoGrid deployment for connecting to the Hazelcast cluster running in the specific namespace. Having these environment variables will prevent `perf_test` from connecting to the local cluster running in the PadoGrid pod.
+
+```bash
+unset NAMESPACE HAZELCAST_SERVICE
+```
+
+---
+
 PadoGrid includes several apps that are tailored to each product. The `perf_test` app is most commonly used for ingesting mock data into clusters. Let's install `perf_test` and ingest data.
 
 ```bash
