@@ -108,7 +108,7 @@ kubectl apply -f https://raw.githubusercontent.com/padogrid/padogrid/develop/pad
 To login to PadoGrid via JupyerLab:
 
 ```bash
-kubectl port-forward padogrid 8888:8888
+kubectl port-forward svc/padogrid 8888:8888
 ```
 
 JupyterLab URL: <http://localhost:8888/lab/workspaces/myrwe>
