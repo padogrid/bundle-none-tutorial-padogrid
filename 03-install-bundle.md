@@ -44,7 +44,7 @@ install_bundle bundle-none-tutorial-padogrid-master.zip
 - *As a preview bundle* - You can preview bundles without installing them.
 
 ```bash
-install_bundle -preview bundle-none-tutorial-padogrid
+install_bundle -download -preview bundle-none-tutorial-padogrid
 ```
 
 ---

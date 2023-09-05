@@ -6,7 +6,7 @@
 
 Let's create a new RWE from which we will conduct our tutorial. We do this by running `create_rwe`. The `create_rwe` command by default runs interactively prompting for inputs. To run it non-interactively, you need to specify the `-quiet` option.
 
-✏️ Keep in mind that an RWE is a top directory in which workspaces are stored. Similarly, a workspace is a directory in which PadoGrid components are stored.
+✏️  An RWE is a top directory in which workspaces are stored. Similarly, a workspace is a directory in which PadoGrid components are stored.
 
 ## 2.1. Interactive RWE
 
