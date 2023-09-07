@@ -6,12 +6,13 @@
 
 PadoGrid supports Prometheus and Grafana for monitoring JMX metrics in real time. You can install them by running `install_padogrid` as follows.
 
+❗The Grafana app scripts may not work with Grafana 10.x. Please install Grafana 9.x for this tutorial.
 
 ```bash
 install_padogrid -product prometheus
 install_padogrid -product grafana-enterprise
 update_products -product prometheus
-update_products -product grafana-enterprise
+update_products -product grafana
 ```
 
 Once installed, create and run the `grafana` app as follows.
@@ -126,7 +127,7 @@ The grafana app has been preconfigured with the above user name and password. If
 The dashboards are organized by Grafana folders and they can be found in the following directory:
 
 ```bash
-cd_app grafana
+cd_app grafana_hz
 ls etc/dashboards
 ```
 
