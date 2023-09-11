@@ -36,6 +36,7 @@ One of the following OS's or platforms:
 - [Maven 3.x](https://maven.apache.org/download.cgi)
 - [Git](https://maven.apache.org/download.cgi)
 - [JDK 8+](https://www.oracle.com/java/technologies/downloads/)
+- `curl`
 - [jq](https://stedolan.github.io/jq/)
 
 ## Table of Contents
