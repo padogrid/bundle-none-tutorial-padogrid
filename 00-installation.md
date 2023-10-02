@@ -71,7 +71,7 @@ docker run --name padogrid --hostname padogrid -d \
            padogrid/padogrid
 ```
 
-JupyterLab URL: <http://localhost:8888/lab/workspaces/myrwe>
+JupyterLab URL: <http://localhost:8888>
 
 You can also login to the container as follows.
 
@@ -89,7 +89,7 @@ podman run --name padogrid --hostname padogrid -d \
            padogrid/padogrid
 ```
 
-JupyterLab URL: <http://localhost:8888/lab/workspaces/myrwe>
+JupyterLab URL: <http://localhost:8888>
 
 You can also login to the container as follows.
 
