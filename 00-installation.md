@@ -96,7 +96,6 @@ You can also login to the container as follows.
 ```bash
 podman exec -it padogrid /bin/bash
 ```
-
 ## 0.4. Kubernetes
 
 Apply the `padogrid.yaml` maintained in the PadoGrid repo.
@@ -111,7 +110,7 @@ To login to PadoGrid via JupyerLab:
 kubectl port-forward svc/padogrid 8888:8888
 ```
 
-JupyterLab URL: <http://localhost:8888/lab/workspaces/myrwe>
+JupyterLab URL: <http://localhost:8888>
 
 To login directly to the PadoGrid pod:
 
