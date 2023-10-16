@@ -31,6 +31,7 @@ Some of the bundles that you may want to supplement this tutorial are listed bel
 1. [bundle-confluent-7-examples-python](https://github.com/padogrid/bundle-confluent-7-examples-python) - Kafka Confluent Python examples. *Requires JupyterLab.*
 1. [ bundle-hazelcast-5-app-ml_lstm-cluster-ml_jet](https://github.com/padogrid/bundle-hazelcast-5-app-ml_lstm-cluster-ml_jet) - Neural Network: LSTM RNN, AI/ML for forecasting future events. *Requires Python.*
 1. [Mosquitto/MQTT Virtual Cluster Tutorial](https://github.com/padogrid/bundle-mosquitto-tutorial-virtual-clusters) - An MQTT virtual cluster tutorial covering archetypes in detail.
+1. [Data Feed Simulator](https://github.com/padogrid/bundle-none-app-simulator) - A data feed simulator for generating continous numerical data for MQTT and Hazelcast.
 
 ---
 
