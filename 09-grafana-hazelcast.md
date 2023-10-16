@@ -131,6 +131,15 @@ cd_app grafana_hz
 ls etc/dashboards
 ```
 
+To import all of the dashboards in the `etc/dashboards` directory, execute the following command.
+
+```bash
+cd_app grafana_hz/bin_sh
+./import_folder -all
+```
+
+Now, go back to the Grafana console and select *Home/Dashboards*. Start with the *Hazelcast/00Main* dashboard, which resembles the Management Center main dashboard.
+
 You can find further details from the following link.
 
   - https://github.com/padogrid/padogrid/wiki/Hazelcast-Grafana-App
