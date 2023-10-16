@@ -6,7 +6,7 @@
 
 PadoGrid can be configured with multitenancy to provide workspace access to multiple users. Please see the following link for instructions.
 
-https://github.com/padogrid/padogrid/wiki/Multitenancy
+<https://github.com/padogrid/padogrid/wiki/Multitenancy>
 
 ---
 
