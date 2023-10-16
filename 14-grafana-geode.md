@@ -120,6 +120,29 @@ Password: admin
 
 The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in setenv.sh. Note that the included commands require the user with administration privileges.
 
+### 14.4. Import Dashboards to Grafana
+
+The dashboards are organized by Grafana folders and they can be found in the following directory:
+
+```bash
+cd_app grafana_geode
+tree etc/dashboards
+```
+
+To import all of the dashboards in the `etc/dashboards` directory, execute the following command.
+
+```bash
+cd_app grafana_geode/bin_sh
+
+# Delete previously imported dashboards.
+./delete_folder
+
+# Import all dashboards
+./import_folder -all
+```
+
+Now, go back to the Grafana console and select *Home/Dashboards*.
+
 You can find further details from the following link.
 
   - https://github.com/padogrid/padogrid/wiki/Geode-Grafana-App

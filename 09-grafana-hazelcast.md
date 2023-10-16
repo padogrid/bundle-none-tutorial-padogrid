@@ -128,7 +128,7 @@ The dashboards are organized by Grafana folders and they can be found in the fol
 
 ```bash
 cd_app grafana_hz
-ls etc/dashboards
+tree etc/dashboards
 ```
 
 To import all of the dashboards in the `etc/dashboards` directory, execute the following command.
