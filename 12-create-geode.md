@@ -8,7 +8,7 @@ In the previous section, we learned how to install Geode and GemFire. Let's cont
 
 ```bash
 # If the '-cluster' option is not specified then it creates the default cluster, 'mygeode'
-make_cluster -product geode
+create_cluster -product geode
 
 # Switch and start cluster
 switch_cluster mygeode

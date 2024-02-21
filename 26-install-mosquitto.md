@@ -104,7 +104,7 @@ The installer's output shows how to compile Mosquitto in OS variants. Choose the
 Upon completion of installing Mosquitto, update the product in PadoGrid.
 
 ```bash
-update_products -product mosquitto
+update_padogrid -product mosquitto
 ```
 
 Output:

@@ -8,7 +8,7 @@ PadoLite is a stripped down, non-federated version of Pado for including support
 
 ```bash
 # Create 'mypadolite' cluster
-make_cluster -product geode -type padolite
+create_cluster -product geode -type padolite
 
 # switch and run mypadolite
 switch_cluster mypadolite

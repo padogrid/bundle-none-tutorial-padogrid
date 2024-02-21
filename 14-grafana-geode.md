@@ -9,8 +9,8 @@ PadoGrid supports Prometheus and Grafana for monitoring JMX metrics in real time
 ```bash
 install_padogrid -product prometheus
 install_padogrid -product grafana-enterprise
-update_products -product prometheus
-update_products -product grafana-enterprise
+update_padogrid -product prometheus
+update_padogrid -product grafana-enterprise
 ```
 
 Once installed, create and run the `grafana` app for Geode as follows.

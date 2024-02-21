@@ -9,7 +9,7 @@ If you followed the installation instructions in this tutorial, then you have al
 Let's create a Hazelcast cluster. The following command creates the default Hazelcast cluster named, `myhz`.
 
 ```bash
-make_cluster -product hazelcast
+create_cluster -product hazelcast
 ```
 
 Now, switch into the `myhz` cluster and view its contents.

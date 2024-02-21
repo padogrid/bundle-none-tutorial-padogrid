@@ -6,7 +6,7 @@
 ```bash
 # If the '-cluster' option is not specified then it creates the
 # default cluster, 'mymosquitto'
-make_cluster -product mosquitto
+create_cluster -product mosquitto
 
 # Switch and start cluster
 switch_cluster mymosquitto

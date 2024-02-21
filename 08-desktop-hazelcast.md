@@ -12,7 +12,7 @@ Install and run the HazelcastDesktop.
 
 ```bash
 install_padogrid -product hazelcast-desktop
-update_products -product hazelcast-desktop
+update_padogrid -product hazelcast-desktop
 create_app -product hazelcast -app desktop
 cd_app desktop/bin_sh
 ./desktop

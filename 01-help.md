@@ -14,35 +14,33 @@ padogrid <tab><tab>
 Output:
 
 ```console
-Display all 100 possibilities? (y or n)
--?                  find_padogrid       remove_docker       stop_group
--product            help_padogrid       remove_group        stop_jupyter
--rwe                install_bundle      remove_k8s          stop_mc
--version            install_padogrid    remove_member       stop_member
-add_cluster         install_rwe         remove_node         stop_pod
-add_member          kill_cluster        remove_pod          stop_rwe
-add_node            kill_group          remove_workspace    stop_workspace
-build_pod           kill_member         show_bundle         switch_cluster
-cd_app              kill_rwe            show_cluster        switch_group
-cd_cluster          kill_workspace      show_group          switch_pod
-cd_docker           list_apps           show_jupyter        switch_rwe
-cd_k8s              list_clusters       show_log            switch_workspace
-cd_pod              list_docker         show_mc             tools
-cd_rwe              list_groups         show_pod            uninstall_product
-cd_workspace        list_k8s            show_products       update_products
-change_version      list_pods           show_rwe            vc_publish
-clean_cluster       list_rwes           show_workspace      vc_start
-cp_sub              list_workspaces     shutdown_cluster    vc_subscribe
-create_app          make_cluster        shutdown_rwe        vm_copy
-create_bundle       open_jupyter        shutdown_workspace  vm_deploy_bundle
-create_cluster      open_vscode         start_cluster       vm_deploy_padogrid
-create_docker       pwd_cluster         start_group         vm_download
-create_group        pwd_group           start_jupyter       vm_exec
-create_k8s          pwd_pod             start_mc            vm_install
-create_pod          pwd_rwe             start_member        vm_show_products
-create_rwe          pwd_workspace       start_pod           vm_sync
-create_script       remove_app          start_workspace     vm_test
-create_workspace    remove_cluster      stop_cluster
+Display all 104 possibilities? (y or n)
+-?                  help_padogrid       remove_docker       stop_cluster
+-product            install_bundle      remove_group        stop_group
+-rwe                install_padogrid    remove_k8s          stop_jupyter
+-version            install_rwe         remove_locator      stop_member
+add_cluster         kill_cluster        remove_member       stop_pod
+add_member          kill_group          remove_node         stop_rwe
+add_node            kill_member         remove_pod          stop_workspace
+build_pod           kill_rwe            remove_workspace    switch_cluster
+cd_app              kill_workspace      show_bundle         switch_group
+cd_cluster          list_apps           show_cluster        switch_pod
+cd_docker           list_clusters       show_group          switch_rwe
+cd_k8s              list_docker         show_jupyter        switch_workspace
+cd_pod              list_groups         show_log            uninstall_padogrid
+cd_rwe              list_k8s            show_padogrid       update_padogrid
+cd_workspace        list_pods           show_pod            vc_publish
+clean_cluster       list_rwes           show_rwe            vc_start
+create_app          list_workspaces     show_workspace      vc_subscribe
+create_bundle       open_jupyter        shutdown_cluster    vm_copy
+create_cluster      open_vscode         shutdown_rwe        vm_deploy_bundle
+create_docker       pwd_cluster         shutdown_workspace  vm_deploy_padogrid
+create_group        pwd_group           start_cluster       vm_download
+create_k8s          pwd_pod             start_group         vm_exec
+create_pod          pwd_rwe             start_jupyter       vm_install
+create_rwe          pwd_workspace       start_member        vm_show_padogrid
+create_workspace    remove_app          start_pod           vm_sync
+find_padogrid       remove_cluster      start_workspace     vm_test
 ```
 
 Each command has a man page providing usage details.
@@ -74,7 +72,7 @@ Try hitting the tab key on some of the commands.
 
 ```bash
 show_cluster <tab><tab>
-make_cluster <tab><tab>
+create_cluster <tab><tab>
 vm_sync <tab><tab>
 ```
 
