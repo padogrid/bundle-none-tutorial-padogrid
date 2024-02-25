@@ -6,16 +6,6 @@
 
 You have created five (5) clusters federated by Pado. Unlike PadoLite, the Pado API is required to ingest data into full-fledged Pado grids. Pado includes several test scripts for ingesting data. Let's ingest bi-temporal data.
 
-If you are using PadoGrid v0.9.21 or older, then run the following to exclude `log4j` from the class path. This is required due to the incompatible `log4j` library included in Geode and PadoGrid. The `log4j` library has been undergoing many API changes recently raising version incompatibility issues. This has been fixed in PadoGrid v0.9.22 (11/22/2022).
-
-```bash
-# Remove log4j from class path. This is required only if you are using
-# PadoGrid v0.9.21 or older. It has been fixed in v0.9.22.
-switch_cluster grid0
-echo "CLASSPATH=\$(echo \$CLASSPATH | sed 's/log4j//g')" >> bin_sh/setenv.sh
-echo "CLASSPATH=\$(echo \$CLASSPATH | sed 's/log4j//g')" >> bin_test/setenv.sh
-```
-
 Execute `test_temporal` as shown below. It adds mock temporal data into the `grid0` cluster.
 
 ```bash

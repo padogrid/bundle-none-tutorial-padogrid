@@ -3,7 +3,7 @@
 ---
 
 <!-- Platforms -->
-[![Host OS](https://github.com/padogrid/padogrid/wiki/images/padogrid-host-os.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Host-OS) [![VM](https://github.com/padogrid/padogrid/wiki/images/padogrid-vm.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-VM) [![Docker](https://github.com/padogrid/padogrid/wiki/images/padogrid-docker.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Docker) [![Kubernetes](https://github.com/padogrid/padogrid/wiki/images/padogrid-kubernetes.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Kubernetes)
+[![PadoGrid 1.x](https://github.com/padogrid/padogrid/wiki/images/padogrid-padogrid-1.x.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-PadoGrid-1.x) [![Host OS](https://github.com/padogrid/padogrid/wiki/images/padogrid-host-os.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Host-OS) [![VM](https://github.com/padogrid/padogrid/wiki/images/padogrid-vm.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-VM) [![Docker](https://github.com/padogrid/padogrid/wiki/images/padogrid-docker.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Docker) [![Kubernetes](https://github.com/padogrid/padogrid/wiki/images/padogrid-kubernetes.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Kubernetes)
 
 # PadoGrid Tutorial
 
@@ -42,7 +42,19 @@ One of the following OS's or platforms:
 - `curl`
 - [jq](https://stedolan.github.io/jq/)
 
-## Table of Contents
+## Introduction
+
+PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. 
+
+The scripts provided by each product are typically only good for managing a single cluster member. They are inadequate for performing cluster-level lifecycle management. This leaves you with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a cluster. The complexity of this task multiplies as you add more members, clusters, and products to your architecture. A steep learning curve of each product ultimately leads to a significant amount of investment in time and efforts.
+
+PadoGrid solves this problem by providing a single, unified set of commands for managing clustering products. The same set of commands applies to all the [supported clustering products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, they can be found in *bundles* as part of solutions. Each bundle is a shrink-wrapped, turnkey solution capturing an end-to-end use case that you can simply install and run. There are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) including this bundle that are readily available for you.
+
+PadoGrid is built from the ground up to bring the concept of *distributed workspaces* to practice so that you can create sandbox environments on the fly. When you create a workspace, PadoGrid automatically isolates it from others so that you can instead focus on your application. The bundles are the direct results of this concept of workspace isolation enabling built-in support for [multitency](https://github.com/padogrid/padogrid/wiki/Multitenancy). By design, each bundle runs in an isolated environment to prevent workspace conflicts.
+
+In this tutorial bundle, we will explore some of the commonly used PadoGrid commands to understand the benefits of having distributed workspaces. 
+
+## Tutorial Sequence
 
 This tutorial is broken down to sections in individually enumerated markdown files as follows.
 
@@ -105,17 +117,6 @@ This bundle is best run using JupyterLab. The following manual page describes ho
 
 <https://github.com/padogrid/padogrid/wiki/JupyterLab>
 
-## Introduction
-
-PadoGrid is a productivity toolkit for managing user workspaces in the server-side. It is commonly used for creating distributed workspaces on your laptop to manage various clustering products running locally and remotely. Managing clustering (or data grid) products such as GemFire, Hazelcast, Redis, Coherence, Spark, Kafka, Hadoop, etc. is a complex task that often requires development and maintenance of custom scripts. 
-
-The scripts provided by each product are typically only good for managing a single cluster member. They are inadequate for performing cluster-level lifecycle management. This leaves you with the time-consuming task of manually deploying, configuring, running, and managing each member that belongs to a cluster. The complexity of this task multiplies as you add more members, clusters, and products to your architecture. A steep learning curve of each product ultimately leads to a significant amount of investment in time and efforts.
-
-PadoGrid solves this problem by providing a single, unified set of commands for managing clustering products. The same set of commands applies to all the [supported clustering products](https://github.com/padogrid/padogrid/wiki/Supported-Data-Grid-Products-and-Downloads). For products that are not supported, they can be found in *bundles* as part of solutions. Each bundle is a shrink-wrapped, turnkey solution capturing an end-to-end use case that you can simply install and run. There are numerous [public online bundles](https://github.com/padogrid/catalog-bundles/blob/master/all-catalog.md) including this bundle that are readily available for you.
-
-PadoGrid is built from the ground up to bring the concept of *distributed workspaces* to practice so that you can create sandbox environments on the fly. When you create a workspace, PadoGrid automatically isolates it from others so that you can instead focus on your application. The bundles are the direct results of this concept of workspace isolation enabling built-in support for [multitency](https://github.com/padogrid/padogrid/wiki/Multitenancy). By design, each bundle runs in an isolated environment to prevent workspace conflicts.
-
-In this tutorial bundle, we will explore some of the commonly used PadoGrid commands to understand the benefits of having distributed workspaces. 
 
 ---
 

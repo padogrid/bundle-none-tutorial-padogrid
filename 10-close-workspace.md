@@ -18,7 +18,7 @@ Output:
 
 ```console
 Workspace:
-   bundle-none-tutorial-padogrid [padogrid_0.9.28]
+   bundle-none-tutorial-padogrid [padogrid_1.0.0]
 
 RWE Directory:
    /Users/dpark/Padogrid/workspaces/rwe-tutorial

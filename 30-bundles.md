@@ -21,9 +21,10 @@ show_bundle -product geode -header
 
 Some of the bundles that you may want to supplement this tutorial are listed below.
 
-1. [bundle-hazelcast-4n5-app-kryo_codegen](https://github.com/padogrid/bundle-hazelcast-4n5-app-kryo_codegen) - Kryo serdes class generator for Hazelcast
-1. [bundle-hazelcast-4n5-cluster-session-wan](https://github.com/padogrid/bundle-hazelcast-4n5-cluster-session-wan) - WAN replication and session expiration plugins
+1. [bundle-hazelcast-4n5-app-kryo_codegen](https://github.com/padogrid/bundle-hazelcast-4n5-app-kryo_codegen) - Kryo serdes class generator for Hazelcast.
+1. [bundle-hazelcast-4n5-cluster-session-wan](https://github.com/padogrid/bundle-hazelcast-4n5-cluster-session-wan) - WAN replication and session expiration plugins.
 1. [bundle-hazelcast-examples-python](https://github.com/padogrid/bundle-hazelcast-examples-python) - Hazelcast Python examples. *Requires JupyterLab.*
+1. [bundle-hazelcast-5-cluster-wan-app-grafana](https://github.com/padogrid/bundle-hazelcast-5-cluster-wan-app-grafana) - Hazelcast multi-cluster demo showcasing PadoGrid Hazelcast Dashboards (PHD).
 1. [bundle-hazelcast-5-docker-debezium_ksqldb_confluent](https://github.com/padogrid/bundle-hazelcast-5-docker-debezium_ksqldb_confluent) - A complete end-to-end CDC solution integrating MySQL-Debezium-Kafka Confluent-Kafka Connect-ksqlDB-Nifi-Schema Registry-Hazelcast. *Requires Docker.*
 1. [bundle-geode-1-app-kryo_codegen](https://github.com/padogrid/bundle-geode-1-docker-debezium_ksqldb_confluent) - Kryo serdes class generator for Geode/GemFire
 1. [bundle-geode-1-app-perf_test_powerbi-cluster-powerbi](https://github.com/padogrid/bundle-geode-1-app-perf_test_powerbi-cluster-powerbi) - Geode/GemFire and Power BI. *Requires Power BI.*
