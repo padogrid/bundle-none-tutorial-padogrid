@@ -4,9 +4,11 @@
 
 # 9. Install and Run Prometheus and Grafana
 
-PadoGrid supports Prometheus and Grafana for monitoring JMX metrics in real time. You can install them by running `install_padogrid` as follows.
+PadoGrid includes PHD (PadoGrid Hazelcast Dashboards), comprehensive sets of Grafana dashboards for monitoring Hazelcast in real time. 
 
-❗The Grafana app scripts may not work with Grafana 10.x. Please install Grafana 9.x for this tutorial.
+![PHD](https://github.com/padogrid/padogrid/raw/develop/images/grafana-hazelcast-screenshot.png?raw=true)
+
+To use PHD, we need to install Prometheus and Grafana as follows.
 
 ```bash
 install_padogrid -product prometheus
@@ -92,7 +94,7 @@ User Name: admin
 Password: admin
 ```
 
-The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in setenv.sh. Note that the included commands require the user with administration privileges.
+The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in `bin_sh/setenv.sh`. Note that the included commands require the user with administration privileges.
 
 
 ## 9.3. OpenShift
@@ -120,7 +122,7 @@ User Name: admin
 Password: admin
 ```
 
-The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in setenv.sh. Note that the included commands require the user with administration privileges.
+The grafana app has been preconfigured with the above user name and password. If you have a different account, then you can change them in `bin_sh/setenv.sh`. Note that the included commands require the user with administration privileges.
 
 ## 9.4. Import Dashboards to Grafana
 

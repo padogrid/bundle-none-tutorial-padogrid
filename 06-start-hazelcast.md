@@ -42,7 +42,7 @@ Nothing to do. Docker ports have already beeen exposed.
 
 ### 6.1.3. Kubernetes
 
-Forward the Pulse port to your host OS.
+Forward the Hazelcast Management Center port to your host OS.
 
 ```bash
 # Hazelcast Management Center
@@ -51,7 +51,7 @@ kubectl port-forward svc/padogrid 8080
 
 ### 6.1.4. OpenShift
 
-Expose the Pulse port by executing the following:
+Expose the Hazelcast Management Center port by executing the following:
 
 ```bash
 oc expose svc padogrid --name hazelcast-mc --port 8080
@@ -70,7 +70,6 @@ padogrid       padogrid-padogrid.apps-crc.testing              padogrid   8888  
 
 ### 6.2.1. Hazelcast Management Center
 
-Pulse URL: 
 Helcast Management Center URL: <http://localhost:8080/hazelcast-mancenter>
 
 - Username: admin
@@ -80,7 +79,7 @@ Helcast Management Center URL: <http://localhost:8080/hazelcast-mancenter>
 
 ### 6.3.1. Hazelcast Management Center
 
-Geode/GemFire Pulse URL: <http://hazelcast-mc-padogrid.apps-crc.testing>
+Hazelcast Management Center URL: <http://hazelcast-mc-padogrid.apps-crc.testing>
 
 - Username: admin
 - Password: admin

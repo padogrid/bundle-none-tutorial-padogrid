@@ -59,57 +59,58 @@ In this tutorial bundle, we will explore some of the commonly used PadoGrid comm
 This tutorial is broken down to sections in individually enumerated markdown files as follows.
 
 ### PadoGrid 
-- [00-installation.md](00-installation.md)
-- [01-help.md](01-help.md)
-- [02-create-rwe.md](02-create-rwe.md)
-- [03-install-bundle.md](03-install-bundle.md)
+
+- [00-installation](00-installation.md)
+- [01-help](01-help.md)
+- [02-create-rwe](02-create-rwe.md)
+- [03-install-bundle](03-install-bundle.md)
 
 ### Hazelcast
 
-- [04-create-hazelcast.md](04-create-hazelcast.md)
-- [05-vm-workspace.md](05-vm-workspace.md)
-- [06-start-hazelcast.md](06-start-hazelcast.md)
-- [07-ingest-data-hazelcast.md](07-ingest-data-hazelcast.md)
-- [08-desktop-hazelcast.md](08-desktop-hazelcast.md)
-- [09-grafana-hazelcast.md](09-grafana-hazelcast.md)
-- [10-close-workspace.md](10-close-workspace.md)
+- [04-create-hazelcast](04-create-hazelcast.md)
+- [05-vm-workspace](05-vm-workspace.md)
+- [06-start-hazelcast](06-start-hazelcast.md)
+- [07-ingest-data-hazelcast](07-ingest-data-hazelcast.md)
+- [08-desktop-hazelcast](08-desktop-hazelcast.md)
+- [09-grafana-hazelcast](09-grafana-hazelcast.md)
+- [10-close-workspace](10-close-workspace.md)
 
 ### Geode/GemFire
 
-- [11-install-geode.md](11-install-geode.md)
-- [12-create-geode.md](12-create-geode.md)
-- [13-ingest-data-geode.md](13-ingest-data-geode.md)
-- [14-grafana-geode.md](14-grafana-geode.md)
-- [15-stop-geode.md](15-stop-geode.md)
+- [11-install-geode](11-install-geode.md)
+- [12-create-geode](12-create-geode.md)
+- [13-ingest-data-geode](13-ingest-data-geode.md)
+- [14-grafana-geode](14-grafana-geode.md)
+- [15-stop-geode](15-stop-geode.md)
 
 ### Group/Workspace
-- [16-group-clusters.md](16-group-clusters.md)
-- [17-stop-workspaces.md](17-stop-workspaces.md)
+- [16-group-clusters](16-group-clusters.md)
+- [17-stop-workspaces](17-stop-workspaces.md)
 
 ### Pado
 
-- [18-install-pado.md](18-install-pado.md)
-- [19-create-padolite.md](19-create-padolite.md)
-- [20-create-padodesktop.md](20-create-padodesktop.md)
-- [21-stop-padolite.md](21-stop-padolite.md)
-- [22-create-pado.md](22-create-pado.md)
-- [23-ingest-data-pado.md](23-ingest-data-pado.md)
-- [24-monitor-pado.md](24-monitor-pado.md)
-- [25-stop-pado.md](25-stop-pado.md)
+- [18-install-pado](18-install-pado.md)
+- [19-create-padolite](19-create-padolite.md)
+- [20-create-padodesktop](20-create-padodesktop.md)
+- [21-stop-padolite](21-stop-padolite.md)
+- [22-create-pado](22-create-pado.md)
+- [23-ingest-data-pado](23-ingest-data-pado.md)
+- [24-monitor-pado](24-monitor-pado.md)
+- [25-stop-pado](25-stop-pado.md)
 
 ### Mosquitto
 
-- [26-install-mosquitto.md](26-install-mosquitto.md)
-- [27-create-mosquitto.md](27-create-mosquitto.md)
-- [28-publish-subscribe-data-mosquitto.md](28-publish-subscribe-data-mosquitto.md)
-- [29-stop-mosquitto.md](29-stop-mosquitto.md)
+- [26-install-mosquitto](26-install-mosquitto.md)
+- [27-create-mosquitto](27-create-mosquitto.md)
+- [28-publish-subscribe-data-mosquitto](28-publish-subscribe-data-mosquitto.md)
+- [29-stop-mosquitto](29-stop-mosquitto.md)
 
 ### Bundles
-- [30-bundles.md](30-bundles.md)
+- [30-bundles](30-bundles.md)
 
 ### Multitenancy
 
-- [31-multitenancy.md](31-multitenancy.md)
+- [31-multitenancy](31-multitenancy.md)
 
 ## Preface
 

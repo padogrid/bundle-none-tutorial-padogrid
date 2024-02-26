@@ -71,7 +71,8 @@ docker run --name padogrid --hostname padogrid -d \
            padogrid/padogrid
 ```
 
-JupyterLab URL: <http://localhost:8888>
+- JupyterLab URL: <http://localhost:8888>
+- Password: `padogrid`
 
 You can also login to the container as follows.
 
@@ -89,7 +90,8 @@ podman run --name padogrid --hostname padogrid -d \
            padogrid/padogrid
 ```
 
-JupyterLab URL: <http://localhost:8888>
+- JupyterLab URL: <http://localhost:8888>
+- Password: `padogrid`
 
 You can also login to the container as follows.
 
@@ -110,7 +112,8 @@ To login to PadoGrid via JupyerLab:
 kubectl port-forward svc/padogrid 8888:8888
 ```
 
-JupyterLab URL: <http://localhost:8888>
+- JupyterLab URL: <http://localhost:8888>
+- Password: `padogrid`
 
 To login directly to the PadoGrid pod:
 
@@ -158,7 +161,8 @@ padogrid   padogrid-padogrid.apps-crc.testing          padogrid   8888          
 
 The `HOST/PORT` column shows the JupyterLab address.
 
-JupyterLab URL: <http://padogrid-padogrid.apps-crc.testing>
+- JupyterLab URL: <http://padogrid-padogrid.apps-crc.testing>
+- Password: `padogrid`
 
 To login directly to the PadoGrid pod, use the PadoGrid pod name:
 
@@ -238,10 +242,10 @@ You should see the directory structure similar to the following.
 ~/Padogrid/
 ├── downloads
 │   ├── hazelcast-5.3.2-slim.tar.gz
-│   └── padogrid_0.9.28.tar.gz
+│   └── padogrid_l.0.0.tar.gz
 ├── products
 │   ├── hazelcast-5.3.2-slim
-│   └── padogrid_0.9.28
+│   └── padogrid_1.0.0
 ├── snapshots
 └── workspaces
     └── myrwe
@@ -260,7 +264,7 @@ tree -L 2 /opt/padogrid
 ├── products
 │   ├── hazelcast-5.3.2-slim
 │   ├── hazelcast-management-center-5.3.2
-│   └── padogrid_0.9.28
+│   └── padogrid_1.0.0
 └── workspaces
     └── myrwe
 ```
@@ -269,7 +273,7 @@ tree -L 2 /opt/padogrid
 
 - The `padogrid_start` script is a bootstrap script for Docker and Kubernetes. You can ignore that file.
 
-- The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.3.2-slim.tar.gz` and `padogrid_0.9.28.tar.gz` distributions are inflated by `install_padogrid` in `products/hazelcast-5.3.2-slim` and `products/padogrid_0.9.28`, respectively.
+- The `products` directory contains the installed products. Product installations are typically done by inflating the downloads. For example, the downloaded `hazelcast-5.3.2-slim.tar.gz` and `padogrid_1.0.0.tar.gz` distributions are inflated by `install_padogrid` in `products/hazelcast-5.3.2-slim` and `products/padogrid_1.0.0`, respectively.
 
 - The `snapshots` directory is reserved for future use. PadoGrid snapshot builds are also available and installable using `install_padogrid`. Note that the snapshots are currently installed in the `products` directory, not in the `snapshots` directory. This may change in the future.
 
@@ -313,10 +317,10 @@ Execute the following commands to completely remove PadoGrid including workspace
 rm -rf ~/Padogrid ~/.padogrid
 
 # Update .bashrc with backup
-#macOS - create backup .bashrc0
+# macOS - create backup .bashrc0
 sed -i 0 -e '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' \
          -e '/padogrid initialization/d' ~/.bashrc
-#Linux - create backup .bashrc0
+# Linux - create backup .bashrc0
 sed -i0 -e '/Padogrid\/workspaces\/myrwe\/initenv.sh/d' \
         -e '/padogrid initialization/d' ~/.bashrc
 ```

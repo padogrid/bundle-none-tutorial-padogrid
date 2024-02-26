@@ -20,10 +20,10 @@ create_rwe -quiet -rwe rwe-tutorial
 
 If you run `create_rwe` without the `-quiet` option then it will prompt for the following information.
 
-❗ All paths must be absolute paths.
+❗ All paths must be absolute paths, i.e., the paths must begin with `/`.
 
-- Product installation path: `~/Padogrid/products/hazelcast-5.3.2-slim`
-- RWE base path: `~/Padogrid/workspaces`
+- Product installation path: `$HOME/Padogrid/products/hazelcast-5.3.2-slim`
+- RWE base path: `$HOME/Padogrid/workspaces`
 - RWE name: `rwe-tutorial`
 - JAVA_HOME path: `<Java installation path>`
 - Default workspace name: `myws`

@@ -4,7 +4,7 @@
 
 # 8. Install and run desktop app
 
-PadoGrid includes a **HazelcastDesktop** app that supports PadoGrid's own HQL (Hazelcast Query Language). HQL is similar to SQL introduced in Hazelcast 5.1. Its query engine is entirely written using the Hazelcast API and unlike Hazelcast's SQL which only runs on Hazelcast 5.1+, HQL runs on Hazelcast 3.x, 4.x, and 5.x. It has some limitations, however, such as no support for `limit` and select projections. If you can live with these limitations then it is a great tool for development, tests, and troubleshooting data problems.
+PadoGrid includes the **HazelcastDesktop** app that supports PadoGrid's own HQL (Hazelcast Query Language). HQL is similar to SQL introduced in Hazelcast 5.1. Its query engine is entirely written using the Hazelcast API and unlike Hazelcast's SQL which only runs on Hazelcast 5.1+, HQL runs on Hazelcast 3.x, 4.x, and 5.x. It has some limitations, however, such as no support for `limit` and select projections. If you can live with these limitations then it is a great tool for development, tests, and troubleshooting data problems.
 
 ✏️  *The desktop app is a Java Swing application. To run it Container, Kubernetes or VM, you need to first install and run X11 on your host OS as described in the [X Window System](00-installation.md#06-x-window-system) section.*
 

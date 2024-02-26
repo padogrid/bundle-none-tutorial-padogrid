@@ -45,7 +45,7 @@ As you can see from the output, in addtion to GemFire, there are other products 
 To install the downloaded prouct distributions, inflate them in the PadoGrid `products` directory. For example, the following inflates a GemFire distribution.
 
 ```bash
-tar -C ~/Padogrid/products/ -xzf $PADOGRID_ENV_BASE_PATH/downloads/vmware-gemfire-9.15.3.tgz
+tar -C $PADOGRID_ENV_BASE_PATH/products/ -xzf $PADOGRID_ENV_BASE_PATH/downloads/vmware-gemfire-9.15.3.tgz
 ```
 
 ✏️ `PADOGRID_ENV_BASE_PATH` is by default set to `~/Padogrid/products` or `/opt/padogrid/products`.

@@ -115,7 +115,7 @@ If you need to measure Hazelcast performance that is aligned with how your appli
 
 ✏️  The performance metrics are placed in the `../results` directory for each `test_` script run.
 
-There are many other features that are included in `perf_test`. The following is a list of core features. See [`perf_test` README.md](https://github.com/padogrid/padogrid/blob/develop/padogrid-deployment/src/main/resources/hazelcast/apps/perf_test/README.md) for details.
+There are many other features that are included in `perf_test`. The following is a list of core features. See [`perf_test` README](https://github.com/padogrid/padogrid/blob/develop/padogrid-deployment/src/main/resources/hazelcast/apps/perf_test/README.md) for details.
 
 - Ingest mock data of any size
 - Ingest transactional data of any size
